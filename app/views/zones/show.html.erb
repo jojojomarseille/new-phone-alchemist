@@ -1,0 +1,16 @@
+<h1>Zones#show</h1>
+<p><%=@zone.name%>
+  <%=@zone.description%></p>
+
+
+<p> Modifier ma zone</p>
+
+<%= form_tag "/zones/#{@zone.id}", method: "patch" do %>
+  <input type="text" name="name" value="<%= @zone.name %>" />
+  <input type="text" name="description" value="<%= @zone.description %>" />
+  <input type="submit" value="mettre a jour la zone" />
+<% end %>
+
+<%= form_tag "/zones/#{@zone.id}", method: "delete" do %>
+  <input type="submit" value="Supprimer la zone" />
+<% end %>

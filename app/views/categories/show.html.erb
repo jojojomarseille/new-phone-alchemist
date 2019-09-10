@@ -1,0 +1,15 @@
+<h1><%=@categorie.name%></h1>
+<p><%=@categorie.description%></p>
+
+
+<p> Modifier ma categorie</p>
+
+<%= form_tag "/categories/#{@categorie.id}", method: "patch" do %>
+  <input type="text" name="name" value="<%= @categorie.name %>" />
+  <input type="text" name="description" value="<%= @categorie.description %>" />
+  <input type="submit" value="mettre a jour la categorie" />
+<% end %>
+
+<%= form_tag "/categories/#{@categorie.id}", method: "delete" do %>
+  <input type="submit" value="Supprimer la categorie" />
+<% end %>

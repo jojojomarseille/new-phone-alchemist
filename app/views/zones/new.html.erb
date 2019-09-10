@@ -1,0 +1,8 @@
+<h1>Zones#new</h1>
+<p>Creer une nouvelle zone</p>
+
+<%= form_tag "/zones", method: "post" do %>
+  <input type="text" name="name" placeholder="name" />
+  <input type="text" name="description" placeholder="description" />
+  <input type="submit" value="Creer la zone" />
+<% end %>

@@ -1,2 +1,17 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.cards{
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-grow:1;
+  border: 2px solid #eaecee;
+  padding: 10px;
+
+}
+
+.card{
+  margin: 5px;
+}

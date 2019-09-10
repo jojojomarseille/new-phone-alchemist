@@ -1,0 +1,25 @@
+<h1><%=@product.title%></h1>
+<p><%=@product.subtitle%>
+  <%=@product.description%>
+  <%=@product.price%>
+  <%=@product.categorie_id%>
+  <%=Categorie.find(@product.categorie_id).name%>
+  <%= cl_image_tag @product.photo, height: 300, width: 400, crop: :fill %>
+</p>
+
+<h2>Modifier la carte</h2>
+
+<%= form_tag "/products/#{@product.id}", method: "patch" do %>
+  <input type="text" name="title" value="<%= @product.title %>"/>
+  <p><%= @product.errors[:title].first %></p>
+  <input type="text" name="subtitle" value="<%= @product.subtitle %>"/>
+  <input type="text" name="description" value="<%= @product.description %>"/>
+  <input type="integer" name="price" value="<%= @product.price %>" />
+  <input type="text" name="categorie_id" value="<%= @product.categorie_id %>" />
+  <input type="text" name="zone_id" value="<%= @product.zone_id %>" />
+  <input type="submit" value="modifier le produit" />
+<% end %>
+
+<%= form_tag "/products/#{@product.id}", method: "delete" do %>
+  <input type="submit" value="Supprimer le produit" />
+<% end %>

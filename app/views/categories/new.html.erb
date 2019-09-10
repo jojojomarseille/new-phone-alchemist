@@ -1,0 +1,16 @@
+<h1>Creer une nouvelle categorie</h1>
+
+<%= form_tag "/categories", method: "post" do %>
+  <input type="text" name="name" placeholder="name" />
+  <input type="text" name="description" placeholder="description" />
+  <input type="submit" value="Creer la categorie" />
+<% end %>
+
+
+<%= simple_form_for @categorie do |f| %>
+        <div class="label">name</div>
+        <div class="typo"> <%= f.input :name, label: false %> </div>
+        <div class="label">description</div>
+        <div class="typo"> <%= f.input :description, label: false %> </div>
+<%= f.submit "Ajouter", class: "btn btn-info btn-block" %>
+ <% end %>

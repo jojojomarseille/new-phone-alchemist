@@ -15,6 +15,9 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'kaminari'   #gem qui permet de gerer un affichage sur plusieurs pages d'une liste
+gem 'cloudinary', '~> 1.9.1' #pour uploader et retoucher simplement des photos
+gem 'carrierwave', '~> 1.2' # c'est la gem qui associe une photo ou un fichier uploadé a un modéle
 
 group :development do
   gem 'web-console', '>= 3.3.0'

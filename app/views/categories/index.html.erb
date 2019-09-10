@@ -1,0 +1,22 @@
+<h1>Liste des categories</h1>
+<p>Find me in app/views/categories/index.html.erb</p>
+
+<div class="cards">
+    <%= paginate @categories %>
+    <% @categories.each do |categorie| %>
+    <div class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><a href="/categories/<%= categorie.id %>"><%= categorie.name%></a></h5>
+        <p class="card-text"><%= categorie.description%></p>
+
+        <a href="/categories/<%= categorie.id %>" class="btn btn-primary">voire</a>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+<p> <a href="/categories/new" class="btn btn-primary"> Creer une nouvelle categorie</a>
+

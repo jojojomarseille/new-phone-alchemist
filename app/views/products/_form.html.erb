@@ -1,0 +1,39 @@
+
+ <%= simple_form_for @product do |f| %>
+        <div class="label">Titre</div>
+        <div class="typo"> <%= f.input :title, label: false %> </div>
+        <div class="label">Sous-titre</div>
+        <div class="typo"> <%= f.input :subtitle, label: false %> </div>
+        <div class="label">description</div>
+        <div class="typo"> <%= f.input :description, label: false %> </div>
+        <div class="label">price</div>
+        <div class="typo"> <%= f.input :price, label: false %> </div>
+
+
+
+        <select name="categorie_id" value="<%= @product.categorie_id %>" >
+
+    <% @categories.each do |categorie| %>
+
+      <option value="<%= categorie.id%>"> <%=categorie.name %> </option>
+
+    <% end %>
+
+  </select>
+
+
+
+  <select name="zone_id" value="<%= @product.zone_id %>">
+
+    <% @zones.each do |zone| %>
+
+      <option value="<%= zone.id%>"> <%=zone.name %> </option>
+
+    <% end %>
+
+  </select>
+
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.submit "Ajouter", class: "btn btn-info btn-block" %>
+        <% end %>
