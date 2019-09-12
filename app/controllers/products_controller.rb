@@ -8,14 +8,15 @@ class ProductsController < ApplicationController
   end
 
   def new
+   @product = Product.new
    @categories = Categorie.all
    @zones = Zone.all
-   @product = Product.new title: params[:title], subtitle: params[:subtitle], description: params[:description], price: params[:price], categorie_id: params[:categorie_id], zone_id: params[:zone_id], photo: params[:photo]
+
  end
 
   def create
-    @categories = Categorie.all
-    Product.create title: params[:title], subtitle: params[:subtitle], description: params[:description], price: params[:price], categorie_id: params[:categorie_id], zone_id: params[:zone_id], photo: params[:photo]
+    #@categories = Categorie.all
+    product = Product.create(product_params)
     redirect_to "/products"
   end
 
@@ -35,8 +36,11 @@ class ProductsController < ApplicationController
     redirect_to "/products"
   end
 
+
+
   def product_params
   params.require(:product).permit(:title, :subtitle, :description, :price, :zone_id, :categorie_id, :photo)
 end
+
 
 end

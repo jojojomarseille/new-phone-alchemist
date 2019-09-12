@@ -1,16 +1,28 @@
 <h1>Creer une nouvelle categorie</h1>
 
-<%= form_tag "/categories", method: "post" do %>
-  <input type="text" name="name" placeholder="name" />
-  <input type="text" name="description" placeholder="description" />
-  <input type="submit" value="Creer la categorie" />
+
+
+
+<%= form_for @categorie do |f| %>
+<div class="form-group">
+
+<label> Nom de la categorie </label>
+<%= f.text_field :name, class: 'form-control' %>
+
+</div>
+
+<div class="form-group">
+
+<label> description de la categorie </label>
+<%= f.text_area :description, class: 'form-control' %>
+
+</div>
+
+<div class="form-group">
+
+<button type="submit" class="btn btn-primary"> creer </button>
+
+
+</div>
+
 <% end %>
-
-
-<%= simple_form_for @categorie do |f| %>
-        <div class="label">name</div>
-        <div class="typo"> <%= f.input :name, label: false %> </div>
-        <div class="label">description</div>
-        <div class="typo"> <%= f.input :description, label: false %> </div>
-<%= f.submit "Ajouter", class: "btn btn-info btn-block" %>
- <% end %>

@@ -1,6 +1,8 @@
 <h1>Liste des produits</h1>
 <p>page principale de la boutique</p>
 
+<p> <a href="products/new"> creer un nouveau produit </a> </p>
+
 <div class="container">
   <div class="slider">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -45,13 +47,4 @@
 
 
 
-<%= form_tag "/products", method: "post" do %>
-  <input type="text" name="title" />
-  <input type="text" name="subtitle" />
-  <input type="text" name="description" />
-  <input type="integer" name="price" />
-  <input type="text" name="zone" />
-  <input type="submit" value="Ajouter le produit" />
-<% end %>
 
-<p> <a href="products/new"> creer un nouveau produit </a> </p>

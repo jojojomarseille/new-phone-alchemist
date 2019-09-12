@@ -6,11 +6,11 @@ class CategoriesController < ApplicationController
   #ici je charge une variable categorie avec une repartition par page, au lancement de l'index
 
   def new
-    @categorie = Categorie.create name: params[:name], description: params[:description]
+    @categorie = Categorie.new
   end
 
   def create
-    Categorie.create name: params[:name], description: params[:description]
+    categorie = Categorie.create(categorie_params)
     redirect_to "/categories"
   end
 
@@ -27,4 +27,9 @@ class CategoriesController < ApplicationController
     Categorie.find(params[:id]).destroy
     redirect_to "/categories"
   end
+
+  def categorie_params
+    params.require(:categorie).permit(:name, :description)
+  end
+
 end
