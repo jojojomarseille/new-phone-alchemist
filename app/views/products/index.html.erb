@@ -39,6 +39,7 @@
         <p class="card-text"><%= un_produit.subtitle%></p>
         <p class="card-price"><%= un_produit.price%> €</p>
         <a href="/products/<%= un_produit.id %>" class="btn btn-primary">voire</a>
+        <%= button_to "ajouter au panier", line_items_path(product_id: un_produit), class: "btn btn-primary" %>
       </div>
     </div>
     <% end %>
