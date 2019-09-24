@@ -55,39 +55,17 @@
         <div class="label">price</div>
         <div class="typo"> <%= f.input :price, label: false %> </div>
 
+        <div class="label">zone_id</div>
+        <div class="typo"> <%= f.input :zone_id, collection: @zones , label: false %> </div>
+        <div class="label">categorie_id</div>
+        <div class="typo"> <%= f.input :categorie_id, label: false %> </div>
 
-
-        <select name="categorie_id" value="<%= @product.categorie_id %>" >
-
-    <% @categories.each do |categorie| %>
-
-      <option value="<%= categorie.id%>"> <%=categorie.name %> </option>
-
-    <% end %>
-
-  </select>
-
-
-
-  <select name="zone_id" value="<%= @product.zone_id %>">
-
-    <% @zones.each do |zone| %>
-
-      <option value="<%= zone.id%>"> <%=zone.name %> </option>
-
-    <% end %>
-
-  </select>
 
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
 
-  <div class="form-group">
+    <%= f.button :submit %>
 
-<button type="submit" class="btn btn-primary"> creer </button>
-
-
-</div>
   <% end %>
 
 <div class="form-group">
@@ -106,3 +84,15 @@
     <% end %>
   </select>
 </div>
+
+<select name="categorie_id" value="<%= @product.categorie_id %>" >
+          <% @categories.each do |categorie| %>
+            <option value="<%= categorie.id%>"> <%=categorie.name %> </option>
+            <% end %>
+        </select>
+
+         <select name="zone_id" value="<%= @product.zone_id %>">
+          <% @zones.each do |zone| %>
+            <option value="<%= zone.id%>"> <%=zone.name %> </option>
+            <% end %>
+        </select>
