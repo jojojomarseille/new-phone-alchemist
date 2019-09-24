@@ -5,6 +5,6 @@ class TableProducts < ActiveRecord::Migration[6.0]
     add_column :products, :subtitle, :string
     add_column :products, :description, :string
     add_column :products, :price, :integer
-    add_column :products, :zone, :string
+
   end
 end

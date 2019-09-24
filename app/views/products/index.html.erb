@@ -1,9 +1,5 @@
-<h1>Liste des produits</h1>
-<p>page principale de la boutique</p>
 
-<p> <a href="products/new"> creer un nouveau produit </a> </p>
-
-<div class="container">
+<div class="container slider-container">
   <div class="slider">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -32,11 +28,11 @@
     <%= paginate @les_produits %>
     <% @les_produits.each do |un_produit| %>
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="https://www.xbxparadise.fr/public/uploads/shop/553fbb4218f2c.jpeg" class="card-img-top" alt="...">
 
       <div class="card-body">
         <h5 class="card-title"><a href="/products/<%= un_produit.id %>"><%= un_produit.title%></a></h5>
-        <p class="card-text"><%= un_produit.subtitle%></p>
+        <p class="card-text"><%= truncate un_produit.subtitle, length: 25 %></p>
         <p class="card-price"><%= un_produit.price%> €</p>
         <a href="/products/<%= un_produit.id %>" class="btn btn-primary">voire</a>
         <%= button_to "ajouter au panier", line_items_path(product_id: un_produit), class: "btn btn-primary" %>

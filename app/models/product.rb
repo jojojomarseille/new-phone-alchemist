@@ -8,6 +8,9 @@ class Product < ActiveRecord::Base
    validates :title, presence: {
     message: "Le titre doit être renseigné."
   }
+
+  validates :price, numericality: { greater_than_or_equal_to: 1}
+
    validates :zone_id, presence: {
     message: "la zone doit être renseigné."
   }
@@ -19,6 +22,7 @@ class Product < ActiveRecord::Base
   validates :title, uniqueness: {
     message: "Ce titre est déjà pris."
   }
+
 
 
 end
