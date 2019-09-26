@@ -1,45 +1,56 @@
 
-<div class="container slider-container">
-  <div class="slider">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="http://www.asca-asso.com/wp-content/uploads/stage-jeux-videos.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="https://x7m7u8e3.stackpathcdn.com/wp-content/uploads/2018/02/jeux-vid%C3%A9o.jpg?iv=51" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="https://image.redbull.com/rbcom/010/2017-03-15/1331849502718_2/0012/0/34/0/898/1920/1250/1/yooka-laylee-nintendo-switch-jeu-inde.jpg" class="d-block w-100" alt="...">
+
+<div class="container slider-container col-sm-10">
+    <div class="row">
+
+      <div class="slider col-sm-12">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleControls" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleControls" data-slide-to="2"></li>
+              </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="http://www.asca-asso.com/wp-content/uploads/stage-jeux-videos.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="https://x7m7u8e3.stackpathcdn.com/wp-content/uploads/2018/02/jeux-vid%C3%A9o.jpg?iv=51" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="https://image.redbull.com/rbcom/010/2017-03-15/1331849502718_2/0012/0/34/0/898/1920/1250/1/yooka-laylee-nintendo-switch-jeu-inde.jpg" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
-  </div>
 
   <div class="cards">
-    <%= paginate @les_produits %>
-    <% @les_produits.each do |un_produit| %>
-    <div class="card" style="width: 18rem;">
-      <img src="https://www.xbxparadise.fr/public/uploads/shop/553fbb4218f2c.jpeg" class="card-img-top" alt="...">
 
+    <% @les_produits.each do |un_produit| %>
+    <div class="card" style="width: 16rem;">
+      <a href="/products/<%= un_produit.id %>">
+      <img src="https://www.gueez.com/panel/assets/img/coupons/psn/5.png" alt="...">
+      </a>
       <div class="card-body">
         <h5 class="card-title"><a href="/products/<%= un_produit.id %>"><%= un_produit.title%></a></h5>
-        <p class="card-text"><%= truncate un_produit.subtitle, length: 25 %></p>
         <p class="card-price"><%= un_produit.price%> €</p>
-        <a href="/products/<%= un_produit.id %>" class="btn btn-primary">voire</a>
         <%= button_to "ajouter au panier", line_items_path(product_id: un_produit), class: "btn btn-primary" %>
       </div>
     </div>
     <% end %>
+
+
   </div>
+  <p><%= paginate @les_produits %></p>
 </div>
 
 

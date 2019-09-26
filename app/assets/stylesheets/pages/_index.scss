@@ -9,9 +9,24 @@
   flex-grow:1;
   border: 2px solid #eaecee;
   padding: 10px;
-
 }
 
-.card{
-  margin: 5px;
+.card img {
+  height: 150px;
+  width:100%;
+  border-radius: 5px;
 }
+
+.card {
+  padding: 10px;
+  margin: 10px;
+}
+
+.slider{
+  height: 400px;
+}
+
+.carousel-item{
+  height: 400px;
+}
+
