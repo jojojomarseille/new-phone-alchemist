@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @les_produits = Product.page(params[:page]).per(6)
+    @les_produits = Product.page(params[:page]).per(10)
   end
 
   def show
@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    Product.find(params[:id]).update title: params[:title], subtitle: params[:subtitle], description: params[:description], price: params[:price], categorie_id: params[:categorie_id], zone_id: params[:zone_id], hoto: params[:photo]
+    Product.find(params[:id]).update title: params[:title], subtitle: params[:subtitle], description: params[:description], price: params[:price], categorie_id: params[:categorie_id], zone_id: params[:zone_id], photo: params[:photo]
 
     if @product.update title: params[:title]
       redirect_to "/products/#{params[:id]}"
