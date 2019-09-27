@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   #patch 'products/:id' => 'products#update'
 
   #delete 'products/:id' => 'products#destroy'
+  get 'productsby/:id' => 'products#index_by_categorie'
 
   get 'zones' => 'zones#index'
   get 'zones/new'

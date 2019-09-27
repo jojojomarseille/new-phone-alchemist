@@ -8,13 +8,40 @@
   </button>
 
 
+  <div class="navbar-categories ">
+    <ul class="navbar-categories-list navbar-nav mr-auto">
+
+      <% @lescategories.each do |categorie| %>
+      <li classe="catego ">
+        <%= link_to "#{categorie.name}", "/productsby/#{categorie.id}" %>
+      </li>
+      <% end %>
+
+      <li classe="categories">
+          <div class="dropdown">
+            <div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" >
+              Autres
+            </div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <% @toutescategories.each do |categorie| %>
+              <a class="dropdown-item" href="/productsby/<%= categorie.id %>"><%= categorie.name %></a>
+              <% end %>
+            </div>
+          </div>
+      </li>
+    </ul>
+  </div>
+
+<%= session[:cart_id] %>
+
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
 
 
         <li class="nav-item ">
-          <%= link_to  "/carts/:id(user_signed_in) " do %>
+          <%= link_to  "/carts/#{session[:cart_id]} " do %>
           <%= image_tag "shopping-cart.png" %>
           <% end %>
         </li>

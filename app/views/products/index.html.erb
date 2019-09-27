@@ -36,7 +36,7 @@
   <div class="cards">
 
     <% @les_produits.each do |un_produit| %>
-    <div class="card" style="width: 16rem;">
+    <div class="card " style="width: 16rem;">
       <a href="/products/<%= un_produit.id %>">
       <img src="https://www.gueez.com/panel/assets/img/coupons/psn/5.png" alt="...">
       </a>
@@ -51,6 +51,8 @@
 
   </div>
   <p><%= paginate @les_produits %></p>
+
+
 </div>
 
 

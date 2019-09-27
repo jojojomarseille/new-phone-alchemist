@@ -1,0 +1,28 @@
+<div class="container slider-container col-sm-10">
+
+
+  <div class="cards">
+
+    <% @productby.each do |un_produit| %>
+    <div class="card " style="width: 16rem;">
+      <a href="/products/<%= un_produit.id %>">
+      <img src="https://www.gueez.com/panel/assets/img/coupons/psn/5.png" alt="...">
+      </a>
+      <div class="card-body">
+        <h5 class="card-title"><a href="/products/<%= un_produit.id %>"><%= un_produit.title%></a></h5>
+        <p class="card-price"><%= un_produit.price%> €</p>
+        <%= button_to "ajouter au panier", line_items_path(product_id: un_produit), class: "btn btn-primary" %>
+      </div>
+    </div>
+    <% end %>
+
+
+  </div>
+  <p><%= paginate @productby %></p>
+
+
+</div>
+
+
+
+

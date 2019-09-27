@@ -23,6 +23,6 @@ class Product < ActiveRecord::Base
     message: "Ce titre est déjà pris."
   }
 
-
+scope :categorie_id, -> (categorie_id) { where categorie_id: categorie_id }
 
 end

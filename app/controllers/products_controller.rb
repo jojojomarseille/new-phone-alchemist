@@ -1,10 +1,14 @@
 class ProductsController < ApplicationController
   def index
-    @les_produits = Product.page(params[:page]).per(10)
+    @les_produits = Product.page(params[:page]).per(8)
   end
 
   def show
     @product = Product.find(params[:id])
+  end
+
+  def index_by_categorie
+    @productby = Product.categorie_id(params[:id]).page(params[:page]).per(8)
   end
 
   def new
