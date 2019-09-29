@@ -2,6 +2,9 @@
 <p><%=@product.subtitle%>
   <%=@product.description%>
   <%=@product.price%>
+
+  <p>Amount: <%= humanized_money_with_symbol(@product.price) %></p>
+
   <%=@product.categorie_id%>
   <%=Categorie.find(@product.categorie_id).name%>
 

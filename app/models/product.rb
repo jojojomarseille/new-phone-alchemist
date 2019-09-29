@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
   belongs_to :categorie
   belongs_to :zone
   has_many :line_items, dependent: :nullify
+  monetize :price_cents
 
   mount_uploader :photo, PhotoUploader #cela definie, je ne sait pas comment qu'il y a un photo uploader pour ce model
 
@@ -24,5 +25,6 @@ class Product < ActiveRecord::Base
   }
 
 scope :categorie_id, -> (categorie_id) { where categorie_id: categorie_id }
+
 
 end

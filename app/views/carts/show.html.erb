@@ -20,3 +20,14 @@
     <%= button_to "vider le panier", @cart, method: :delete, data: { confirm: "Etes-vous sur ?"}, class: "btn btn-danger" %>
   </div>
 </div>
+
+<div>
+  <p><%=@cart.price_cents%> </p>
+  </div>
+
+<div class="row">
+  <%= form_tag orders_path do %>
+  <%= hidden_field_tag 'cart_id', @cart.id %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+  <% end %>
+</div>

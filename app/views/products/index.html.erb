@@ -43,6 +43,9 @@
       <div class="card-body">
         <h5 class="card-title"><a href="/products/<%= un_produit.id %>"><%= un_produit.title%></a></h5>
         <p class="card-price"><%= un_produit.price%> €</p>
+
+        <p>Amount: <%= humanized_money_with_symbol(un_produit.price) %></p>
+
         <%= button_to "ajouter au panier", line_items_path(product_id: un_produit), class: "btn btn-primary" %>
       </div>
     </div>
