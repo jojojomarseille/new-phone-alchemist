@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @products =Product.categorie_id(@product.categorie.id).page(params[:page]).per(4)
+
   end
 
   def index_by_categorie
@@ -43,7 +45,7 @@ class ProductsController < ApplicationController
 
 
   def product_params
-  params.require(:product).permit(:title, :subtitle, :description, :price, :zone_id, :categorie_id, :photo)
+  params.require(:product).permit( :title, :subtitle, :description, :price, :zone_id, :categorie_id, :photo)
 end
 
 

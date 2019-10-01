@@ -1,28 +1,73 @@
-<h1><%=@product.title%></h1>
-<p><%=@product.subtitle%>
-  <%=@product.description%>
-  <%=@product.price%>
+<div class="container">
+  <div class="row">
+    <div class=" bloc-photo col-sm-6 ">
+      <img src="<%=@product.photo2%> "  alt="photo page produit">
+    </div>
 
-  <p>Amount: <%= humanized_money_with_symbol(@product.price) %></p>
+    <div class="bloc-info col-sm-6" >
+    <h1><%=@product.title%></h1>
+    <h2> <%= humanized_money_with_symbol(@product.price)%> </h2>
 
-  <%=@product.categorie_id%>
-  <%=Categorie.find(@product.categorie_id).name%>
+    <%= button_to "ajouter au panier", line_items_path(product_id:"#{@product.id}" ), class: "btn btn-primary" %>
 
-</p>
 
-<h2>Modifier la carte</h2>
+    <p><%=@product.subtitle%></p>
+      <p><%=@product.description%> </p>
 
-<%= form_tag "/products/#{@product.id}", method: "patch" do %>
-  <input type="text" name="title" value="<%= @product.title %>"/>
-  <p><%= @product.errors[:title].first %></p>
-  <input type="text" name="subtitle" value="<%= @product.subtitle %>"/>
-  <input type="text" name="description" value="<%= @product.description %>"/>
-  <input type="integer" name="price" value="<%= @product.price %>" />
-  <input type="text" name="categorie_id" value="<%= @product.categorie_id %>" />
-  <input type="text" name="zone_id" value="<%= @product.zone_id %>" />
-  <input type="submit" value="modifier le produit" />
-<% end %>
 
-<%= form_tag "/products/#{@product.id}", method: "delete" do %>
-  <input type="submit" value="Supprimer le produit" />
-<% end %>
+      <%=Categorie.find(@product.categorie_id).name%>
+    </p>
+  </div>
+
+
+  <div class="row">
+    <div class ="suggestions">
+      <p> suggestions</p>
+      <div class="cards">
+
+    <% @products.each do |un_produit| %>
+    <div class="card " style="width: 16rem;">
+      <a href="/products/<%= un_produit.id %>">
+      <img src="https://www.gueez.com/panel/assets/img/coupons/psn/5.png" alt="...">
+      </a>
+      <div class="card-body">
+        <h5 class="card-title"><a href="/products/<%= un_produit.id %>"><%= un_produit.title%></a></h5>
+        <p class="card-price"><%= un_produit.price%> €</p>
+
+        <p>Amount: <%= humanized_money_with_symbol(un_produit.price) %></p>
+
+        <%= button_to "ajouter au panier", line_items_path(product_id: un_produit), class: "btn btn-primary" %>
+      </div>
+    </div>
+    <% end %>
+
+
+  </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <% if current_user.admin? %>
+
+        <h2>Modifier la carte</h2>
+
+        <%= form_tag "/products/#{@product.id}", method: "patch" do %>
+          <input type="text" name="title" value="<%= @product.title %>"/>
+          <p><%= @product.errors[:title].first %></p>
+          <input type="text" name="subtitle" value="<%= @product.subtitle %>"/>
+          <input type="text" name="description" value="<%= @product.description %>"/>
+          <input type="integer" name="price" value="<%= @product.price %>" />
+          <input type="text" name="categorie_id" value="<%= @product.categorie_id %>" />
+          <input type="text" name="zone_id" value="<%= @product.zone_id %>" />
+          <input type="submit" value="modifier le produit" />
+         <% end %>
+
+        <%= form_tag "/products/#{@product.id}", method: "delete" do %>
+          <input type="submit" value="Supprimer le produit" />
+        <% end %>
+
+    <% else %>
+
+    <% end %>
+  </div>
+</div>
