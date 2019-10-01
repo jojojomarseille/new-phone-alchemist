@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_15_010900) do
+ActiveRecord::Schema.define(version: 2019_10_01_151617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(version: 2019_09_15_010900) do
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "sku"
+    t.string "photo_url", default: "https://www.ikea.com/PIAimages/0710999_PE727908_S5.JPG?f=s"
+    t.integer "price_cents", default: 0, null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -51,14 +54,28 @@ ActiveRecord::Schema.define(version: 2019_09_15_010900) do
     t.index ["product_id"], name: "index_line_items_on_product_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "cart_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.bigint "cart_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.string "subtitle"
     t.string "description"
-    t.integer "price"
     t.integer "categorie_id"
     t.integer "zone_id"
     t.string "photo"
+    t.integer "price_cents", default: 0, null: false
+    t.string "photo2", default: "https://www.mega-pc.net/wp-content/uploads/2019/08/image_cover-1.jpg"
     t.index ["categorie_id"], name: "index_products_on_categorie_id"
     t.index ["zone_id"], name: "index_products_on_zone_id"
   end
@@ -85,4 +102,6 @@ ActiveRecord::Schema.define(version: 2019_09_15_010900) do
 
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "products"
+  add_foreign_key "orders", "carts"
+  add_foreign_key "orders", "users"
 end

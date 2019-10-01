@@ -37,5 +37,11 @@ Rails.application.routes.draw do
 
   resources :categories
 
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
+
+mount StripeEvent::Engine, at: 'http://localhost:40/stripe-webhooks'
+
 
 end

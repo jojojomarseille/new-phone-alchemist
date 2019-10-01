@@ -20,7 +20,9 @@ gem 'cloudinary', '~> 1.9.1' #pour uploader et retoucher simplement des photos
 gem 'carrierwave', '~> 1.2' # c'est la gem qui associe une photo ou un fichier uploadé a un modéle
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
-
+gem 'money-rails'
+gem 'stripe'
+gem 'stripe_event'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
