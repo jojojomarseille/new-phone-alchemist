@@ -35,6 +35,9 @@ Rails.application.routes.draw do
   #patch 'categories/:id' => 'categories#update'
   #delete 'categories/:id' => 'categories#destroy'
 
+  get 'CGU' => 'pages#CGU'
+  get 'Qui' => 'pages#Qui_sommes_nous'
+
   resources :categories
 
   resources :orders, only: [:show, :create] do

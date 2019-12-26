@@ -6,26 +6,9 @@
 position:fixed;
 z-index:1;
 //border-bottom: solid #eaecee 1px;
-
 }
 
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
+.columns {
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 150px;
-}
-
-.nav-item img {
-  width: 50px;
-}
-
-li {
-  margin-right: 10px;
-}
+      columns: 2;
+    }
