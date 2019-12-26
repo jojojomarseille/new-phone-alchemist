@@ -1,17 +1,17 @@
 class OrdersController < ApplicationController
   def create
   cart = Cart.find(params[:cart_id])
-  order  = Order.create!(cart: cart, cart_sku: cart.sku, amount: cart.price, state: 'pending', user: current_user)
+  order  = Order.create!(cart: cart, cart_sku: cart.sku, amount: cart.total, state: 'pending', user: current_user)
 
 
 
 session = Stripe::Checkout::Session.create(
   payment_method_types: ['card'],
   line_items: [{
-    name: 'T-shirt',
-    description: 'Comfortable cotton t-shirt',
-    images: ['https://example.com/t-shirt.png'],
-    amount: 500,
+    name: "commande no #{order.id}",
+    description: 'Votre commande',
+    images: ['hhttps://pbs.twimg.com/profile_images/535742351973441536/grlWNueo_400x400.png'],
+    amount: cart.total,
     currency: 'eur',
     quantity: 1,
   }],
