@@ -27,8 +27,20 @@
   height: 400px;
 }
 
-.carousel-item{
+.carousel-item img{
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+
+}
+
+.carousel-item {
   height: 400px;
 
+}
+
+.pagination {
+  width: 100%;
+  justify-content: center;
 }
 
