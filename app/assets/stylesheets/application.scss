@@ -19,7 +19,7 @@
     line-height: 38px;
     text-decoration: none;
     background-color: white;
-    border: 1px solid #DDD;
+
     border-left-width: 0;
 }
 
@@ -28,10 +28,13 @@ html, body {
   height: 100%;
   margin: 0; padding: 0;
 }
+
+
 body {
   display : table;
   width: 100%;
 }
+
 .foot {
   display : table-row;
   height: 35px; /* à titre d'exemple */
@@ -39,7 +42,7 @@ body {
 
 
 .bloc-photo {
-  background-color: blue;
+
   margin-left: -15px;
 }
 
@@ -48,7 +51,7 @@ body {
   margin-top: 90px;
 }
 .pagination {
-    border-left: 1px solid #ddd;
+
     .first{
         padding : 0;
         float: none;
