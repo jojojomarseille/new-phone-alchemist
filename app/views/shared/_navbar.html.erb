@@ -1,3 +1,48 @@
+
+
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Collapsed content</h5>
+
+<!--ici commence l'interieur du toggl -->
+      <p class="text-muted"><div class="navbar-categories ">
+    <ul class="navbar-categories-list navbar-nav mr-auto">
+
+      <% @lescategories.each do |categorie| %>
+      <li classe="catego ">
+        <%= link_to "#{categorie.name}", "/productsby/#{categorie.id}" %>
+      </li>
+      <% end %>
+
+      <li>
+        <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Autres categories
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <% @toutescategories.each do |categorie| %>
+              <button class="dropdown-item" href="/productsby/<%= categorie.id %>"><%= categorie.name %></button>
+              <% end %>
+  </div>
+</div>
+      </li>
+    </ul>
+  </div></p>
+
+<!-- ici fini le contenue du toggle -->
+
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+<!-- navbar classique
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "/products", class: "navbar-brand" do %>
     <%= image_tag "logo.png"%>
@@ -17,22 +62,24 @@
       </li>
       <% end %>
 
-      <li classe="categories">
-          <div class="dropdown">
-            <div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" >
-              Autres
-            </div>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <% @toutescategories.each do |categorie| %>
-              <a class="dropdown-item" href="/productsby/<%= categorie.id %>"><%= categorie.name %></a>
+      <li>
+        <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Autres categories
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <% @toutescategories.each do |categorie| %>
+              <button class="dropdown-item" href="/productsby/<%= categorie.id %>"><%= categorie.name %></button>
               <% end %>
-            </div>
-          </div>
+  </div>
+</div>
       </li>
     </ul>
   </div>
 
-<%= session[:cart_id] %>
+
+
+
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -62,3 +109,4 @@
     </ul>
   </div>
 </div>
+fin de la navbar classique-->
