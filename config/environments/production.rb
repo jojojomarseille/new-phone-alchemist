@@ -1,6 +1,7 @@
 Rails.application.configure do
 
   config.hosts << "56cbd347.ngrok.io"
+  config.hosts << "new-phone-alchemist.herokuapp.com"
 
   config.action_mailer.default_url_options = { host: "new-phone-alchemist.herokuapp.com" }
   # Settings specified here will take precedence over those in config/application.rb.
