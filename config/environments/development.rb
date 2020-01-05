@@ -1,5 +1,6 @@
 Rails.application.configure do
   config.action_mailer.default_url_options = { host: "http://localhost:3000" }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -55,6 +56,7 @@ Rails.application.configure do
   config.assets.quiet = true
 
   config.hosts << "56cbd347.ngrok.io"
+  config.hosts << "new-phone-alchemist.herokuapp.com"
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
