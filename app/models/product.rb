@@ -4,6 +4,8 @@ class Product < ActiveRecord::Base
   has_many :line_items, dependent: :nullify
   monetize :price_cents
 
+  has_one_attached :photo
+
   mount_uploader :photo, PhotoUploader #cela definie, je ne sait pas comment qu'il y a un photo uploader pour ce model
 
    validates :title, presence: {
