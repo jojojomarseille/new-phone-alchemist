@@ -41,7 +41,7 @@
     <% @les_produits.each do |un_produit| %>
       <div class="card " style="width: 18rem;">
         <a href="/products/<%= un_produit.id %>">
-        <img src="https://www.codeplay.ma/wp-content/uploads/2017/11/psn.png" alt="image des produits">
+        <%= cl_image_tag un_produit.photo,crop: :fill%>
         </a>
         <div class="card-body row">
 
