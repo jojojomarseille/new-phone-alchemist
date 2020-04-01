@@ -37,6 +37,7 @@ Rails.application.routes.draw do
 
   get 'CGU' => 'pages#CGU'
   get 'Qui' => 'pages#Qui_sommes_nous'
+  get 'zoneadmin' => 'pages#zoneadmin'
 
   resources :categories
 

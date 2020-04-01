@@ -7,6 +7,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   flex-grow:1;
+  margin-top: 30px;
   //border: 2px solid #eaecee;
   //padding: 0px;
 }
@@ -19,23 +20,23 @@
 
 .card {
   padding: 5px;
-  margin-top: 20px;
+  margin-top: 130px;
 }
 
 .slider{
-
-  height: 400px;
+  height: 570px;
+  margin: 0; padding: 0;
+  margin-top: -34px;
 }
 
 .carousel-item img{
   height: 100%;
   width: 100%;
-  border-radius: 5px;
 
 }
 
 .carousel-item {
-  height: 400px;
+  height: 100%;
 
 }
 
