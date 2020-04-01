@@ -23,6 +23,7 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'money-rails'
 gem 'stripe'
 gem 'stripe_event'
+gem 'dotenv-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
