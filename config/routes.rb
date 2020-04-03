@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   #delete 'categories/:id' => 'categories#destroy'
 
   get 'CGU' => 'pages#CGU'
+  get 'home' => 'products#index'
   get 'Qui' => 'pages#Qui_sommes_nous'
   get 'zoneadmin' => 'pages#zoneadmin'
 

@@ -36,10 +36,10 @@
 
 
 
-  <div class="cards row">
+  <div class="cards row col-sm-12">
 
     <% @les_produits.each do |un_produit| %>
-      <div class="card " style="width: 18rem;">
+      <div class="card" >
         <a href="/products/<%= un_produit.id %>">
         <%= cl_image_tag un_produit.photo,crop: :fill%>
         </a>

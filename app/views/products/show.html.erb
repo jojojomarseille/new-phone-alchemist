@@ -1,52 +1,52 @@
 <div class="container">
-  <div class="row">
-    <div class=" bloc-photo col-sm-6 ">
-      <%= image_tag "photoproduit.png" %>
-    </div>
 
-    <div class="bloc-info col-sm-6" >
+  <div class="row row1">
     <h1><%=@product.title%></h1>
-    <h2> <%= humanized_money_with_symbol(@product.price)%> </h2>
+  </div>
 
-    <%= button_to "ajouter au panier", line_items_path(product_id:"#{@product.id}" ), class: "btn btn-primary" %>
+  <div class="row row2">
+    <div class=" bloc-photo  ">
+        <%= cl_image_tag @product.photo,crop: :fill%>
+    </div>
 
 
-    <p><%=@product.subtitle%></p>
-      <p><%=@product.description%> </p>
+    <div class="bloc-info " >
+
+      <h2> <%= humanized_money_with_symbol(@product.price)%> </h2>
+      <p class="conditions"> <i class="fas fa-shipping-fast"></i> Livraison instantanée par mail </p>
+      <p class="conditions"> <i class="fas fa-boxes"></i> En stock </p>
+
+      <%= button_to "Acheter", line_items_path(product_id:"#{@product.id}" ), class: "btn btn-primary btn-achat" %>
 
 
-      <%=Categorie.find(@product.categorie_id).name%>
-    </p>
+      <p class="subtitle"><%=@product.subtitle%></p>
+      <p class="description"><%=@product.description%> </p>
+    </div>
   </div>
 
 
-  <div class="row">
+  <div class="row row3">
     <div class ="suggestions">
-      <p> suggestions</p>
-      <div class="cards">
+      <h2> Suggestions</h2>
+        <div class="cardsshow">
 
-    <% @products.each do |un_produit| %>
-    <div class="card " style="width: 16rem;">
-      <a href="/products/<%= un_produit.id %>">
-      <img src="https://www.gueez.com/panel/assets/img/coupons/psn/5.png" alt="...">
-      </a>
-      <div class="card-body">
-        <h5 class="card-title"><a href="/products/<%= un_produit.id %>"><%= un_produit.title%></a></h5>
-        <p class="card-price"><%= un_produit.price%> €</p>
-
-        <p>Amount: <%= humanized_money_with_symbol(un_produit.price) %></p>
-
-        <%= button_to "ajouter au panier", line_items_path(product_id: un_produit), class: "btn btn-primary" %>
-      </div>
-    </div>
-    <% end %>
-
-
-  </div>
+          <% @products.each do |un_produit| %>
+            <div class="card " style="width: 16rem;">
+              <a href="/products/<%= un_produit.id %>">
+              <%= cl_image_tag un_produit.photo,crop: :fill%>
+              </a>
+              <div class="card-body">
+                <h5 class="card-title"><a href="/products/<%= un_produit.id %>"><%= un_produit.title%></a></h5>
+                <p class="card-price"><%= un_produit.price%> €</p>
+                <%= button_to "ajouter au panier", line_items_path(product_id: un_produit), class: "btn btn-primary" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row row4">
     <% if current_user.admin? %>
 
         <h2>Modifier la carte</h2>
@@ -60,7 +60,7 @@
           <input type="text" name="categorie_id" value="<%= @product.categorie_id %>" />
           <input type="text" name="zone_id" value="<%= @product.zone_id %>" />
           <input type="submit" value="modifier le produit" />
-         <% end %>
+        <% end %>
 
         <%= form_tag "/products/#{@product.id}", method: "delete" do %>
           <input type="submit" value="Supprimer le produit" />

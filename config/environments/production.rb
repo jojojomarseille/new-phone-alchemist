@@ -1,6 +1,6 @@
 Rails.application.configure do
 
-  config.hosts << "56cbd347.ngrok.io"
+
   config.hosts << "new-phone-alchemist.herokuapp.com"
 
   config.action_mailer.default_url_options = { host: "new-phone-alchemist.herokuapp.com" }
@@ -41,7 +41,9 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+
+
+  config.active_storage.service = :cloudinary
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
