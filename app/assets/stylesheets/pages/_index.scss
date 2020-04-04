@@ -1,26 +1,41 @@
 // Import page-specific CSS files here.
 @import "home";
 
+.container {
+  width: 100%;
+  text-align: center;
+}
+
 .cards{
 
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   flex-grow:1;
-  margin-top: 30px;
-  //border: 2px solid #eaecee;
+  margin: auto;
+  margin-top: 130px;
+  padding-top: 50px;
+
+  justify-content: center;
   //padding: 0px;
 }
 
 .card img {
-  height: 150px;
+  height: 200px;
   width:100%;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .card {
-  padding: 5px;
-  margin-top: 130px;
+  padding: 10px;
+  margin: 10px;
+  width: 350px;
+  height: 280px;
+  margin-top: 20px;
+  border-color: white;
+}
+
+.card-body {
+  justify-content: space-between;
 }
 
 .slider{
@@ -44,4 +59,3 @@
   width: 100%;
   justify-content: center;
 }
-

@@ -40,15 +40,75 @@ body {
   height: 35px; /* à titre d'exemple */
 }
 
+// reglages du design de la show de product
+
+
+
+.row2 {
+  height: 450px;
+
+}
 
 .bloc-photo {
+  height: 100%;
+  width: 60%;
+}
 
-  margin-left: -15px;
+.bloc-photo img {
+  width: 100%;
+  height: 450px;
+  border-radius: 10px;
+}
+
+.bloc-info {
+  height: 100%;
+  width: 40%;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: left;
+}
+
+.bloc-info h2 {
+  font-size: 8rem;
+}
+
+.btn-achat {
+  width: 100%;
+}
+
+.conditions {
+  font-weight: bold;
+  color: yellowgreen;
+  height: 1rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.row3 {
+  width: 100%;
+  margin-top: 30px;
+  border-top: solid 1px black;
+  margin-bottom: 50px;
+
+}
+
+.cardsshow {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow:1;
+  margin: auto;
+
 }
 
 
 .yield {
   margin-top: 90px;
+
 }
 .pagination {
 
@@ -78,5 +138,3 @@ body {
         border: none;
     }
 }
-
-
