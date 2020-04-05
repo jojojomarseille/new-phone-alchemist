@@ -103,6 +103,7 @@ body {
   flex-wrap: wrap;
   flex-grow:1;
   margin: auto;
+
 }
 
 .description {
@@ -115,6 +116,17 @@ body {
 
 .card img{
   height: 140px;
+  width:100%;
+  border-radius: 10px;
+}
+
+.card {
+  padding: 10px;
+  margin: 10px;
+  width: 350px;
+  height: 280px;
+  margin-top: 20px;
+  border-color: white;
 }
 
 .yield {
