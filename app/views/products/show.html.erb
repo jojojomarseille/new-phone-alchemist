@@ -1,7 +1,18 @@
 <div class="container">
 
   <div class="row row1">
-    <h1><%=@product.title%></h1>
+
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/productsby/<%=@product.categorie_id%>"><%= Categorie.find(@product.categorie_id).name %></a></li>
+    <li class="breadcrumb-item active" aria-current="page"><%=@product.title%></li>
+  </ol>
+</nav>
+
+
+
   </div>
 
   <div class="row row2">
@@ -11,7 +22,7 @@
 
 
     <div class="bloc-info " >
-
+      <h1><%=@product.title%></h1>
       <h2> <%= humanized_money_with_symbol(@product.price)%> </h2>
       <p class="conditions"> <i class="fas fa-shipping-fast"></i> Livraison instantanée par mail </p>
       <p class="conditions"> <i class="fas fa-boxes"></i> En stock </p>

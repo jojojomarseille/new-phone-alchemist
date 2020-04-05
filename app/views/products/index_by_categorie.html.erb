@@ -2,6 +2,14 @@
 
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><%= Categorie.find(params[:id]).name %></li>
+        </ol>
+      </nav>
+
     <h1 class="display-4"> <%= Categorie.find(params[:id]).name %> </h1>
     <p class="lead"><%=Categorie.find(params[:id]).description%></p>
   </div>
@@ -12,7 +20,7 @@
     <% @productby.each do |un_produit| %>
     <div class="card " style="width: 16rem;">
       <a href="/products/<%= un_produit.id %>">
-      <img src="https://www.gueez.com/panel/assets/img/coupons/psn/5.png" alt="...">
+      <%= cl_image_tag un_produit.photo,crop: :fill%>
       </a>
       <div class="card-body">
         <h5 class="card-title"><a href="/products/<%= un_produit.id %>"><%= un_produit.title%></a></h5>
