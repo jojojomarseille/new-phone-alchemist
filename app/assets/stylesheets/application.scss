@@ -102,9 +102,19 @@ body {
   flex-wrap: wrap;
   flex-grow:1;
   margin: auto;
-
 }
 
+.description {
+  display: block;/* or inline-block */
+  overflow: hidden;
+  max-height: 6.5em;
+  line-height: 1.3em;
+}
+
+
+.card img{
+  height: 140px;
+}
 
 .yield {
   margin-top: 90px;
