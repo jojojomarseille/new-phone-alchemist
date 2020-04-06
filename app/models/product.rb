@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   belongs_to :categorie
   belongs_to :zone
+  belongs_to :order
   has_many :line_items, dependent: :nullify
   monetize :price_cents
 

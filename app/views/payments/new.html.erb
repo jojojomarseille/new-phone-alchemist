@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row py-4">
-    <div class="col-md-3"><%= image_tag @order.cart.photo_url, width: '100%' %></div>
+    <div class="col-md-3"><%= image_tag @product.photo_url , width: '100%'%></div>
     <div class="col">
       <h1>Résumé de commande</h1>
-      <p>Commande no <strong><%= @order.cart.id %></strong></p>
+      <p>Commande no <strong><%= @order.id %></strong></p>
       <p> Montant total TTC: <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
       <button id="pay" class="btn btn-primary">Pay</button>
 

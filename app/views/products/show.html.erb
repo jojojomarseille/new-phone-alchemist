@@ -27,8 +27,10 @@
       <p class="conditions"> <i class="fas fa-shipping-fast"></i> Livraison instantanée par mail </p>
       <p class="conditions"> <i class="fas fa-boxes"></i> En stock </p>
 
-      <%= button_to "Acheter", line_items_path(product_id:"#{@product.id}" ), class: "btn btn-primary btn-achat" %>
-
+        <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'product_id', @product.id %>
+          <%= submit_tag 'Acheter', class: 'btn btn-achat btn-primary' %>
+        <% end %>
 
       <p class="subtitle"><%=@product.subtitle%></p>
       <p class="description"><%=@product.description%> </p>

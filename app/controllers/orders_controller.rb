@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def create
-  cart = Cart.find(params[:cart_id])
-  order  = Order.create!(cart: cart, cart_sku: cart.sku, amount: cart.total, state: 'pending', user: current_user)
+  product = Product.find(params[:product_id])
+  order  = Order.create!(product_id: product.id, amount: product.price, state: 'pending', user: current_user)
 
 
 
@@ -10,13 +10,13 @@ session = Stripe::Checkout::Session.create(
   line_items: [{
     name: "commande no #{order.id}",
     description: 'Votre commande',
-    images: ['hhttps://pbs.twimg.com/profile_images/535742351973441536/grlWNueo_400x400.png'],
-    amount: cart.total,
+    images: [product.photo_url],
+    amount: product.price_cents,
     currency: 'eur',
     quantity: 1,
   }],
-  success_url: 'http://56cbd347.ngrok.io/products',
-  cancel_url: 'http://56cbd347.ngrok.io/products',
+  success_url: order_url(order),
+  cancel_url: order_url(order),
 )
 
 
@@ -25,7 +25,8 @@ session = Stripe::Checkout::Session.create(
 end
 
 def show
-  @order = current_user.orders.find(params[:user_id])
+  @order = Order.find(params[:id])
+  @product = Product.find(@order.product_id)
 end
 
 end
