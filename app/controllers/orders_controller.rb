@@ -25,7 +25,7 @@ session = Stripe::Checkout::Session.create(
 end
 
 def show
-  @order = Order.find(params[:id])
+  @order = current_user.orders.find(params[:id])
   @product = Product.find(@order.product_id)
 end
 
