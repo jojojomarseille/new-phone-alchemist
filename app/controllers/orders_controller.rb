@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def create
   product = Product.find(params[:product_id])
-  order  = Order.create!(product_id: product.id, amount: product.price, state: 'pending', user: current_user)
+  order  = Order.create!(product_id: product.id, product_sku: product.sku, amount: product.price, state: 'pending', user: current_user)
 
 
 
