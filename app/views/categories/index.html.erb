@@ -1,12 +1,14 @@
-<h1>Liste des categories</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+<div class="container1 col-sm-10">
 
-<div class="cards">
+<h1>Liste des categories</h1>
+
+
+<div class="cards1 ">
     <%= paginate @categories %>
     <% @categories.each do |categorie| %>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
+    <div class="cardcategorie col-sm-12 row">
+      <img class="col-sm-4" src="https://www.zoorigin.com/media/thumbnail/article_cover/media/images/xfocus.jpg.pagespeed.ic.pGGl6foEVp.jpg" class="card-img-top" alt="koala">
+      <div class="card-body col-sm-7">
         <h5 class="card-title"><a href="/categories/<%= categorie.id %>"><%= categorie.name%></a></h5>
         <p class="card-text"><%= categorie.description%></p>
 
@@ -15,8 +17,8 @@
     </div>
     <% end %>
   </div>
+
+
+
+<p> <a href= "<%= new_category_path %>" class="btn btn-primary"> Creer une nouvelle categorie</a></p>
 </div>
-
-
-<p> <a href= "<%= new_category_path %>" class="btn btn-primary"> Creer une nouvelle categorie</a>
-

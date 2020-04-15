@@ -43,8 +43,6 @@ body {
 // reglages du design de la show de product
 
 
-
-
 .row2 {
   height: 450px;
 
@@ -161,3 +159,25 @@ body {
         border: none;
     }
 }
+
+//index categories ( et un peu index zones aussi)
+
+.container1 {
+margin: auto;
+}
+
+.cardcategorie {
+width: 100%;
+border: 1px solid black;
+padding: 10px;
+height: 170px;
+margin-bottom: 30px;
+}
+
+.cardcategorie img {
+height: 100%;
+
+}
+
+
+

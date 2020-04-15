@@ -1,11 +1,13 @@
+<div class="container1 col-sm-10">
+
 <h1>Zones#index</h1>
 
-<div class="cards">
+<div class="cards1">
     <%= paginate @zones %>
     <% @zones.each do |zone| %>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
+    <div class="cardcategorie col-sm-12 row">
+      <img class="col-sm-4" src="https://www.zoorigin.com/media/thumbnail/article_cover/media/images/xfocus.jpg.pagespeed.ic.pGGl6foEVp.jpg" class="card-img-top" alt="koala">
+      <div class="card-body col-sm-7">
         <h5 class="card-title"><a href="/zones/<%= zone.id %>"><%= zone.name%></a></h5>
         <p class="card-text"><%= zone.description%></p>
 
@@ -14,7 +16,8 @@
     </div>
     <% end %>
   </div>
+
+
+
+<p> <a href= "<%= zones_new_path %>" class="btn btn-primary"> Creer une nouvelle zone</a></p>
 </div>
-
-
-<p> <a href="/zones/new" class="btn btn-primary"> Creer une nouvelle zone</a>
