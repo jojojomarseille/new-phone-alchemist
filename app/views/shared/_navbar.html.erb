@@ -1,42 +1,41 @@
 
 
 
-<div class="pos-f-t">
+<div class="pos-f-t container">
   <div class="collapse" id="navbarToggleExternalContent">
-    <div class="bg-dark p-4">
-      <h5 class="text-white h4">Collapsed content</h5>
-
-
-<!--ici commence l'interieur du toggl -->
+    <div class="bg-dark p-4 " >
 
 
 
+     <% if current_user.admin? %>
+      <div class="row">
         <%= link_to "Zone Admin", "/zoneadmin" %>
-
-      <h3> Categories </h3>
-      <p class="text-muted columns "><div class="navbar-categories ">
-    <ul class="navbar-categories-list navbar-nav mr-auto ">
-
-      <% @lescategories.each do |categorie| %>
-      <li classe="catego ">
-        <%= link_to "#{categorie.name}", "/productsby/#{categorie.id}" %>
-      </li>
+      </div>
+      <% else %>
       <% end %>
 
-      <li>
-        <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Autres categories
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    <% @toutescategories.each do |categorie| %>
-              <button class="dropdown-item" href="/productsby/<%= categorie.id %>"><%= categorie.name %></button>
-              <% end %>
-  </div>
-</div>
-      </li>
-    </ul>
-  </div></p>
+
+      <div class="row col-sm-12">
+
+        <% @lescategories.each do |categorie| %>
+
+          <div class="navbar1 navbarcol col-sm-2">
+            <h2> <%= link_to "#{categorie.name}", "/productsby/#{categorie.id}" %> </h2>
+            <ul>
+              <li><%= categorie.products[1]%></li>
+              <li><%= categorie.products[2]%></li>
+              <li><%= categorie.products[3]%></li>
+              <li><%= categorie.products[4]%></li>
+              <li><%= categorie.products[5]%></li>
+            </ul>
+          </div>
+
+
+        <%end%>
+      </div>
+
+
+
 
 <!-- ici fini le contenue du toggle -->
 

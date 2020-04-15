@@ -4,14 +4,37 @@
         left: 0;
         right: 0;
 position:fixed;
-z-index:1;
+z-index:2;
 //border-bottom: solid #eaecee 1px;
 }
 
-.columns {
+#navbarToggleExternalContent {
+  margin-top: 70px;
+  position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+position:fixed;
+z-index:3;
+color: white;
+}
 
-      columns: 2;
-    }
+.navbarcol {
+  height: 200px;
+  margin: auto;
+
+  text-align: left;
+
+}
+
+.navbarcol li {
+  list-style: none;
+}
+
+.navbarcol a {
+  list-style: none;
+  color: white;
+}
 
 img {
   height: 60px;
