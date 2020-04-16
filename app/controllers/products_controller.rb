@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show, :index]
+
+
   def index
     @les_produits = Product.page(params[:page]).per(8)
   end
