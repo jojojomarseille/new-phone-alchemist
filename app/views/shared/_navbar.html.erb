@@ -14,7 +14,7 @@
            <div class="headernavbarelement col-sm-6"><h3><%= link_to "Zone Admin", "/zoneadmin" %><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></h3></div>
         </div>
       <% else %>
-        <p> Bienvenu a toi <%= current_user.email%> </p>
+        <p> Bienvenu a toi <%= current_user.email%> <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></p>
       <% end %>
     <%else %>
       <%= link_to "Login", new_user_session_path, class: "nav-link" %>

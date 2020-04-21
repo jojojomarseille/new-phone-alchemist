@@ -1,0 +1,28 @@
+<div class="container slider-container col-sm-12">
+
+  <div class="titre row col-sm-12">
+    <h1> Liste des produits </h1>
+  </div>
+
+  <div class="cards row col-sm-12">
+
+    <% @les_produits.each do |un_produit| %>
+      <div class="cardindex " >
+        <a href="/products/<%= un_produit.id %>">
+        <%= cl_image_tag un_produit.photo,crop: :fill%>
+        </a>
+        <div class="card-body row">
+
+          <h5 class="card-price col-sm-5"><%= un_produit.price%> €</h5>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+    <%= paginate @les_produits %>
+
+
+</div>
+

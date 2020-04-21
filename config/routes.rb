@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   get 'zones' => 'zones#index'
   get 'zones/new'
+  get 'indexadmin' => 'products#indexadmin'
   post 'zones' => 'zones#create'
   get 'zones/:id' => 'zones#show'
   patch 'zones/:id' => 'zones#update'
@@ -42,7 +43,7 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  resources :orders, only: [:show, :create] do
+  resources :orders, only: [:show, :create, :index] do
     resources :payments, only: :new
   end
 

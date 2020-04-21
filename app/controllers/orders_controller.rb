@@ -29,4 +29,9 @@ def show
   @product = Product.find(@order.product_id)
 end
 
+
+def index
+  @orders = Order.all
+end
+
 end

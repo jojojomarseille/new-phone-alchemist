@@ -6,6 +6,11 @@ class ProductsController < ApplicationController
     @les_produits = Product.page(params[:page]).per(8)
   end
 
+   def indexadmin
+    @les_produits = Product.page(params[:page]).per(12)
+  end
+
+
   def show
     @product = Product.find(params[:id])
     @products =Product.categorie_id(@product.categorie.id).page(params[:page]).per(4)
