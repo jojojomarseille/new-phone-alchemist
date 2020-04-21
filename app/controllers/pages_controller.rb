@@ -14,4 +14,10 @@ class PagesController < ApplicationController
 
   def Qui_sommes_nous
   end
+
+  def user
+   @users = User.all
+
+
+  end
 end

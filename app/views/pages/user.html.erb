@@ -1,0 +1,30 @@
+
+<% if current_user.admin? %>
+
+
+
+<h1>Utilisateurs </h1>
+
+
+
+  <div class="cards1 ">
+    <% @users.each do |user| %>
+    <div class="cardcategorie col-sm-12 row">
+      <img class="col-sm-4" src="https://www.zoorigin.com/media/thumbnail/article_cover/media/images/xfocus.jpg.pagespeed.ic.pGGl6foEVp.jpg" class="card-img-top" alt="koala">
+      <div class="card-body col-sm-7">
+        <h5 class="card-title"><%= user.email%></h5>
+        <p class="card-text">Gaetang colin</p>
+        <p class="card-text">Code postal: 13200</p>
+
+        <a href="/categories/1" class="btn btn-primary">voire</a>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+
+</div>
+
+<% else %>
+
+<% end %>
