@@ -7,6 +7,8 @@ class PagesController < ApplicationController
   end
 
   def zoneadmin
+    @users = User.all
+    @orders = Order.all
   end
 
   def CGU

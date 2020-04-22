@@ -1,3 +1,5 @@
+<% if current_user.admin? %>
+
 <h1>Products#create</h1>
 <p>ici je peux creer un produit</p>
 
@@ -6,3 +8,6 @@
 
 <%= render "products/form" %>
 
+<% else %>
+
+<% end %>

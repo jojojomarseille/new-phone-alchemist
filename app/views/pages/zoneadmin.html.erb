@@ -1,8 +1,27 @@
-<h1>ZoneAdmin</h1>
-<h2>Menu: </h2>
 
-<%= link_to "Zones", "zones" %>
-<%= link_to "Categories", "categories" %>
-<%= link_to "Creer un produit", "products/new" %>
-<%= link_to "Users", "user" %>
-<%= link_to "Commandes", "orders" %>
+<% if current_user.admin? %>
+<div class="container">
+
+  <h1>ZoneAdmin</h1>
+  <div class="row">
+
+   <div class="menu col-sm-4">
+    <h2>Menu: </h2>
+    <%= link_to "Zones", "zones" %>
+    <%= link_to "Categories", "categories" %>
+    <%= link_to "Creer un produit", "products/new" %>
+    <%= link_to "Users", "user" %>
+    <%= link_to "Commandes", "orders" %>
+    <%= link_to "Produits", "indexadmin" %>
+   </div>
+   <div class="blocmetriques col-sm-8">
+    <p>Nombre de comptes:<%= @users.count%></p>
+    <p>Nombre de transactions: <%= @orders.count%></p>
+   </div>
+
+
+  </div>
+</div>
+<% else %>
+
+<% end %>
