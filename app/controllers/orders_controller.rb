@@ -32,6 +32,10 @@ end
 
 def index
   @orders = Order.all
+  @orderspending = Order.where(state: "pending")
+  @orderspaid = Order.where(state: "paid")
+
+
 end
 
 end

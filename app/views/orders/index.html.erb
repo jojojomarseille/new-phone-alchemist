@@ -1,10 +1,36 @@
 <% if current_user.admin? %>
 
-
-<h1> Liste des commandes </h1>
+<h2> Liste des commandes payées: </h2>
 
 <div class="cards1 ">
-    <% @orders.each do |order| %>
+    <% @orderspaid.each do |order| %>
+    <div class="cardcategorie col-sm-12 row">
+      <img class="col-sm-4" src="https://www.zoorigin.com/media/thumbnail/article_cover/media/images/xfocus.jpg.pagespeed.ic.pGGl6foEVp.jpg" class="card-img-top" alt="koala">
+      <div class="card-body col-sm-4">
+        <h5 class="card-title">Order id:<%= order.id%></h5>
+        <p class="card-text">etat:<%=order.state%></p>
+        <p class="card-text">montant:<%= order.amount_cents%>€</p>
+        <p class="card-text">utilisateur: <%= order.user_id%></p>
+      </div>
+      <div class="card-body col-sm-3">
+        <p class="card-text">créé le:<%= order.created_at%></p>
+        <p class="card-text">produit: <%= order.product_id%></p>
+      </div>
+
+    </div>
+    <% end %>
+  </div>
+
+
+</div>
+</div>
+
+
+
+<h2> Liste des commandes en attente: </h2>
+
+<div class="cards1 ">
+    <% @orderspending.each do |order| %>
     <div class="cardcategorie col-sm-12 row">
       <img class="col-sm-4" src="https://www.zoorigin.com/media/thumbnail/article_cover/media/images/xfocus.jpg.pagespeed.ic.pGGl6foEVp.jpg" class="card-img-top" alt="koala">
       <div class="card-body col-sm-4">

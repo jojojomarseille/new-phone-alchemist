@@ -3,4 +3,5 @@ class Order < ApplicationRecord
   has_many :products
 
   monetize :amount_cents
+
 end
