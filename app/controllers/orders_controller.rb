@@ -34,8 +34,15 @@ def index
   @orders = Order.all
   @orderspending = Order.where(state: "pending")
   @orderspaid = Order.where(state: "paid")
+  @ordersenverif = Order.where(state: "enverif")
+  @ordersvalidé = Order.where(state: "validé")
+  @orderslivré = Order.where(state: "livré")
 
+end
 
+def update
+Order.find(params[:id]).update  state: params[:state]
+    redirect_to "/orders"
 end
 
 end

@@ -43,9 +43,11 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  resources :orders, only: [:show, :create, :index] do
+  resources :orders, only: [:show, :create, :index, :update] do
     resources :payments, only: :new
   end
+
+  # patch 'orders/:id' => 'zones#update'
 
 mount StripeEvent::Engine, at: '/stripe-webhooks'
 
