@@ -19,7 +19,9 @@ class PagesController < ApplicationController
 
   def user
    @users = User.all
+  end
 
-
+  def Userdashboard
+    @orders = Order.where(user_id: current_user.id)
   end
 end

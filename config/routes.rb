@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   get 'user' => 'pages#user'
   get 'Qui' => 'pages#Qui_sommes_nous'
   get 'zoneadmin' => 'pages#zoneadmin'
+  get 'Userdashboard' => 'pages#Userdashboard'
 
   resources :categories
 
