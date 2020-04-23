@@ -4,6 +4,12 @@ class ApplicationController < ActionController::Base
   before_action :categories_load
 
 
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+
+
+
+
 def categories_load
     @lescategories = Categorie.first(6)
     #on charge une variable avec les 3 categorie qui apparaitrons dans la nav barre
@@ -11,5 +17,13 @@ def categories_load
     #la on charge une variable pour le menu deroulant de la nav bar, qui affichera toutes les categories.
 
 end
+
+protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :firstname, :cp])
+  end
+
+
 
 end

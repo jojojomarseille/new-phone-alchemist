@@ -10,6 +10,21 @@
           <%= f.error_notification %>
 
           <div class="form-inputs">
+            <%= f.input :name,
+                        required: true,
+                        autofocus: true,
+                        placeholder: "Name",
+                        input_html: { autocomplete: "name" }%>
+            <%= f.input :firstname,
+                        required: true,
+                        autofocus: true,
+                        placeholder: "Firstname",
+                        input_html: { autocomplete: "firstname" }%>
+            <%= f.input :cp,
+                        required: true,
+                        autofocus: true,
+                        placeholder: "Code postal",
+                        input_html: { autocomplete: "cp" }%>
             <%= f.input :email,
                         required: true,
                         autofocus: true,
