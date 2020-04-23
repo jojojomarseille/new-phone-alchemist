@@ -10,7 +10,7 @@
     <% if user_signed_in? %>
       <% if current_user.admin? %>
         <div class="row col-sm-12">
-           <div class="headernavbarelement col-sm-6"><h3> Bienvenu a toi <%= current_user.email%> </h3></div>
+           <div class="headernavbarelement col-sm-6"><h3> Bienvenu a toi <%= current_user.name%> </h3></div>
            <div class="headernavbarelement col-sm-6"><h3><%= link_to "Zone Admin", "/zoneadmin" %><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></h3></div>
         </div>
       <% else %>
