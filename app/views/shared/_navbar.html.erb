@@ -43,11 +43,13 @@
           <div class="navbar1 navbarcol col-sm-2">
             <h2> <%= link_to "#{categorie.name}", "/productsby/#{categorie.id}" %> </h2>
             <ul>
-              <li><%= categorie.products[1]%></li>
-              <li><%= categorie.products[2]%></li>
-              <li><%= categorie.products[3]%></li>
-              <li><%= categorie.products[4]%></li>
-              <li><%= categorie.products[5]%></li>
+              <% @index = 0 %>
+              <% (categorie.products.count).times do %>
+
+              <li><%= link_to "#{Product.where(categorie_id: categorie.id)[@index].title}", "/products/#{Product.where(categorie_id: categorie.id)[@index].id}" %></li>
+              <% @index = @index + 1%>
+             <%end%>
+
             </ul>
           </div>
 
