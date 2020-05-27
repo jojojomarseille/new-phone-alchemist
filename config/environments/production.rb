@@ -1,7 +1,7 @@
 Rails.application.configure do
 
 
-
+  config.hosts << "phonealchemist.herokuapp.com"
   config.hosts << "slasher.store"
 
   config.action_mailer.default_url_options = { host: "phonealchemist.herokuapp.com" }
