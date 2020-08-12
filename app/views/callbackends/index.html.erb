@@ -1,0 +1,33 @@
+<% if current_user.admin? %>
+
+<div class="container1 col-sm-10">
+
+<h1>CallbackEnds#index</h1>
+
+<div class="cards1">
+    <%= paginate @callbackends %>
+    <% @callbackends.each do |callbackend| %>
+    <div class="cardcategorie col-sm-12 row">
+      <img class="col-sm-4" src="https://www.zoorigin.com/media/thumbnail/article_cover/media/images/xfocus.jpg.pagespeed.ic.pGGl6foEVp.jpg" class="card-img-top" alt="koala">
+      <div class="card-body col-sm-7">
+        <h5 class="card-title"><%= callbackend.transid%></h5>
+        <p class="card-text"><%= callbackend.numero%></p>
+        <p class="card-text"><%= callbackend.formule%></p>
+        <p class="card-text"><%= callbackend.duree%></p>
+        <p class="card-text"><%= callbackend.endtime%></p>
+        <p class="card-text"><%= callbackend.starttime%></p>
+
+
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+
+
+<p> <a href= "callbackends/new" class="btn btn-primary"> Creer un nouveau callbackend</a></p>
+</div>
+
+<% else %>
+
+<% end %>

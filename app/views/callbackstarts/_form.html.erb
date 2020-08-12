@@ -1,0 +1,23 @@
+ <%= simple_form_for @callbackstart do |f| %>
+        <div class="label">Transid</div>
+        <div class="typo"> <%= f.input :transid, label: false %> </div>
+
+        <div class="label">formule</div>
+        <div class="typo"> <%= f.input :formule, label: false %> </div>
+
+        <div class="label">starttime</div>
+        <div class="typo"> <%= f.datetime_field :starttime, label: false %> </div>
+
+        <div class="label">numeros appelé</div>
+        <div class="typo"> <%= f.input :numero, label: false %> </div>
+
+        <div class="label">code</div>
+        <div class="typo"> <%= f.input :code, label: false %> </div>
+
+        <div class="label">numero appelant</div>
+        <div class="typo"> <%= f.input :callernum, label: false %> </div>
+
+
+    <%= f.button :submit %>
+
+  <%end %>

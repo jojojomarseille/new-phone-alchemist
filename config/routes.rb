@@ -28,6 +28,13 @@ Rails.application.routes.draw do
   patch 'zones/:id' => 'zones#update'
   delete 'zones/:id' => 'zones#destroy'
 
+  get 'callbackstarts' => 'callbackstarts#index'
+  get 'callbackstarts/new'
+  post 'callbackstarts' => 'callbackstarts#create'
+
+  get 'callbackends' => 'callbackends#index'
+  get 'callbackends/new'
+  post 'callbackends' => 'callbackends#create'
   #get 'categories' => 'categories#index'
   #get 'categories/new'
   #post 'categories/new' => 'categories#create'
@@ -51,6 +58,8 @@ Rails.application.routes.draw do
   # patch 'orders/:id' => 'zones#update'
 
 mount StripeEvent::Engine, at: '/stripe-webhooks'
+
+# mount Audiotel::API => '/'
 
 
 end

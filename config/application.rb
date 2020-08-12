@@ -21,4 +21,9 @@ module NewPhonealchemist
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
   end
+
+
+  # config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
+  # config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
+
 end

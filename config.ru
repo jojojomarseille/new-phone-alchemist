@@ -3,3 +3,7 @@
 require_relative 'config/environment'
 
 run Rails.application
+
+# use ActiveRecord::ConnectionAdapters::ConnectionManagement
+
+# run Audiotel::API

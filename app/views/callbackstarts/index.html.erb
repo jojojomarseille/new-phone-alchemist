@@ -1,0 +1,33 @@
+<% if current_user.admin? %>
+
+<div class="container1 col-sm-10">
+
+<h1>Callbacksstart#index</h1>
+
+<div class="cards1">
+    <%= paginate @callbackstarts %>
+    <% @callbackstarts.each do |callbackstart| %>
+    <div class="cardcategorie col-sm-12 row">
+      <img class="col-sm-4" src="https://www.zoorigin.com/media/thumbnail/article_cover/media/images/xfocus.jpg.pagespeed.ic.pGGl6foEVp.jpg" class="card-img-top" alt="koala">
+      <div class="card-body col-sm-7">
+        <h5 class="card-title"><%= callbackstart.transid%></h5>
+        <p class="card-text"><%= callbackstart.numero%></p>
+        <p class="card-text"><%= callbackstart.formule%></p>
+        <p class="card-text"><%= callbackstart.callernum%></p>
+        <p class="card-text"><%= callbackstart.code%></p>
+        <p class="card-text"><%= callbackstart.starttime%></p>
+
+
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+
+
+<p> <a href= "callbackstarts/new" class="btn btn-primary"> Creer un nouveau callbackstart</a></p>
+</div>
+
+<% else %>
+
+<% end %>
