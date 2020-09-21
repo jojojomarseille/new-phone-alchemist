@@ -10,6 +10,10 @@ gem 'rails', '6.0.0'
 gem 'redis'
 gem 'grape'
 
+gem 'grape-entity'
+gem 'grape_on_rails_routes'
+gem 'hashie-forbidden_attributes'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'

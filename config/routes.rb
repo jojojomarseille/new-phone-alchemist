@@ -59,7 +59,7 @@ Rails.application.routes.draw do
 
 mount StripeEvent::Engine, at: '/stripe-webhooks'
 
-# mount Audiotel::API => '/'
+mount Audiotel::Base => '/'
 
 
 end
