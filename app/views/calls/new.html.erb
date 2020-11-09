@@ -1,0 +1,13 @@
+<% if current_user.admin? %>
+
+<h1>call#create</h1>
+<p>ici je peux creer un call</p>
+
+
+
+
+<%= render "calls/form" %>
+
+<% else %>
+
+<% end %>

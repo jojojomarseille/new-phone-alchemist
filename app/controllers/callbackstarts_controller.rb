@@ -1,7 +1,7 @@
 class CallbackstartsController < ApplicationController
 
 def index
-  @callbackstarts = Callbackstart.page(params[:page]).per(8)
+  @callbackstarts = Callbackstart.page(params[:page]).per(50)
 end
 
 def new

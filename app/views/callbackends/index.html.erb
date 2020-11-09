@@ -4,28 +4,37 @@
 
 <h1>CallbackEnds#index</h1>
 
-<div class="cards1">
+<p> <a href= "callbackends/new" class="btn btn-primary"> Creer un nouveau callbackend</a></p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Transid</th>
+      <th scope="col">Numero</th>
+      <th scope="col">Formule</th>
+      <th scope="col">Duree</th>
+      <th scope="col">Endtime</th>
+      <th scope="col">Starttime</th>
+    </tr>
+  </thead>
+  <tbody>
     <%= paginate @callbackends %>
     <% @callbackends.each do |callbackend| %>
-    <div class="cardcategorie col-sm-12 row">
-      <img class="col-sm-4" src="https://www.zoorigin.com/media/thumbnail/article_cover/media/images/xfocus.jpg.pagespeed.ic.pGGl6foEVp.jpg" class="card-img-top" alt="koala">
-      <div class="card-body col-sm-7">
-        <h5 class="card-title"><%= callbackend.transid%></h5>
-        <p class="card-text"><%= callbackend.numero%></p>
-        <p class="card-text"><%= callbackend.formule%></p>
-        <p class="card-text"><%= callbackend.duree%></p>
-        <p class="card-text"><%= callbackend.endtime%></p>
-        <p class="card-text"><%= callbackend.starttime%></p>
 
+      <tr>
+        <th scope="row"><%= callbackend.id%></th>
+        <td><%= callbackend.transid%></td>
+        <td><%= callbackend.numero%></td>
+        <td><%= callbackend.formule%></td>
+        <td><%= callbackend.duree%></td>
+        <td><%= callbackend.endtime%></td>
+        <td><%= callbackend.starttime%></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
 
-      </div>
-    </div>
-    <% end %>
-  </div>
-
-
-
-<p> <a href= "callbackends/new" class="btn btn-primary"> Creer un nouveau callbackend</a></p>
 </div>
 
 <% else %>

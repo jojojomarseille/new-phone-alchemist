@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  get 'codes/index'
   ActiveAdmin.routes(self)
   resources :line_items
   resources :carts
@@ -35,6 +36,11 @@ Rails.application.routes.draw do
   get 'callbackends' => 'callbackends#index'
   get 'callbackends/new'
   post 'callbackends' => 'callbackends#create'
+
+
+   get 'calls' => 'calls#index'
+  get 'calls/new'
+  post 'calls' => 'calls#create'
   #get 'categories' => 'categories#index'
   #get 'categories/new'
   #post 'categories/new' => 'categories#create'
@@ -43,11 +49,17 @@ Rails.application.routes.draw do
   #patch 'categories/:id' => 'categories#update'
   #delete 'categories/:id' => 'categories#destroy'
   get 'home' => 'products#index'
+  get 'audiotel' => 'pages#audiotel'
   get 'CGU' => 'pages#CGU'
   get 'user' => 'pages#user'
   get 'Qui' => 'pages#Qui_sommes_nous'
   get 'zoneadmin' => 'pages#zoneadmin'
   get 'Userdashboard' => 'pages#Userdashboard'
+
+  get 'codes' => 'codes#index'
+  get 'codes/new'
+  post 'codes' => 'codes#create'
+
 
   resources :categories
 

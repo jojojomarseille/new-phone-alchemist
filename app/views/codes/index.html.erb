@@ -1,0 +1,28 @@
+<% if current_user.admin? %>
+
+<div class="container1 col-sm-10">
+
+<h1>Code#index</h1>
+
+<div class="cards1">
+
+    <% @codes.each do |code| %>
+    <div class=" codesindex col-sm-12 row">
+        <p class="card-title"><%= code.code%></p>
+        <p class="card-text"><%= code.user%></p>
+        <p class="card-text"><%= code.value%></p>
+        <p class="card-text"><%= code.finaluser%></p>
+        <p class="card-text"><%= code.associatedorder%></p>
+    </div>
+    <% end %>
+  </div>
+
+
+
+<p> <a href= "codes/new" class="btn btn-primary"> Creer un nouveau code</a></p>
+</div>
+
+<% else %>
+
+<% end %>
+

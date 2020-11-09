@@ -1,0 +1,52 @@
+<% if current_user.admin? %>
+
+<div class="container1 col-sm-10">
+
+<h1>Call#index</h1>
+
+<p> <a href= "calls/new" class="btn btn-primary"> Creer un nouveau call</a></p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">transid</th>
+      <th scope="col">numero</th>
+      <th scope="col">formule</th>
+      <th scope="col">callernum</th>
+      <th scope="col">code</th>
+      <th scope="col">starttime</th>
+      <th scope="col">endtime</th>
+      <th scope="col">duree</th>
+      <th scope="col">call_status</th>
+      <th scope="col">code_status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= paginate @calls %>
+    <% @calls.each do |call| %>
+    <tr>
+      <th scope="row"><%= call.id%></th>
+      <td><%= call.transid%></td>
+      <td><%= call.numero%></td>
+      <td><%= call.formule%></td>
+      <td><%= call.callernum%></td>
+      <td><%= call.code%></td>
+      <td><%= call.starttime%></td>
+      <td><%= call.endtime%></td>
+      <td><%= call.duree%></td>
+      <td><%= call.call_status%></td>
+      <td><%= call.code_status%></td>
+    </tr>
+
+    <% end %>
+
+  </tbody>
+</table>
+
+</div>
+
+<% else %>
+
+<% end %>
