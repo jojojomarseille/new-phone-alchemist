@@ -18,6 +18,7 @@ def update
     redirect_to "/callbackends"
   end
 
+
 def callbackend_params
   params.require(:callbackend).permit( :transid, :formule, :starttime, :numero, :endtime, :duree)
 end

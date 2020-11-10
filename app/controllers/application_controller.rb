@@ -50,6 +50,7 @@ def audio_code_validation(audio_code)
   end
 end
 
+
 protected
 
   def configure_permitted_parameters
@@ -57,5 +58,34 @@ protected
   end
 
 
+
+end
+
+
+def audio_code_validation(audio_code)
+
+  @appels = []
+    Call.all.each do |appel|
+      @appels << appel
+    end
+
+
+   @appels.each do |appel|
+    if
+      appel.code == audio_code
+        if
+          appel.code_status = "delivré"
+          return "code a valider, appel id: '#{appel.transid}'"
+        else
+          return "code deja validé"
+        end
+    else
+      return appel.transid
+    end
+  end
+end
+
+
+loop do |appel|
 
 end

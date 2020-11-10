@@ -18,4 +18,5 @@ def call_params
   params.require(:call).permit( :transid, :formule, :starttime, :numero, :code, :callernum, :endtime, :duree, :call_status, :code_status)
 end
 
+
 end

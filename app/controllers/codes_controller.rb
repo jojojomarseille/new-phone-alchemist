@@ -1,6 +1,6 @@
 class CodesController < ApplicationController
 
-def index
+  def index
     @codes = Code.all
   end
 
@@ -19,5 +19,6 @@ end
 def code_params
   params.require(:code).permit( :user, :code, :value, :finaluser, :associateduser, :status, :valid_until, :utilised_at)
 end
+
 
 end
