@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
 
+
   get 'codes/index'
+
   ActiveAdmin.routes(self)
   resources :line_items
   resources :carts
@@ -38,6 +40,7 @@ Rails.application.routes.draw do
   post 'callbackends' => 'callbackends#create'
 
 
+
    get 'calls' => 'calls#index'
   get 'calls/new'
   post 'calls' => 'calls#create'
@@ -57,6 +60,7 @@ Rails.application.routes.draw do
   get 'Userdashboard' => 'pages#Userdashboard'
 
   get 'codes' => 'codes#index'
+
   get 'codes/new'
   post 'codes' => 'codes#create'
 

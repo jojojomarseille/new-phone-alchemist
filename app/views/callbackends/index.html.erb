@@ -4,7 +4,7 @@
 
 <h1>CallbackEnds#index</h1>
 
-<p> <a href= "callbackends/new" class="btn btn-primary"> Creer un nouveau callbackend</a></p>
+<p> <a href= "callbackends/new" class="btn btn-primary"> Creer un nouveau callbackend</a></p
 
 <table class="table table-striped">
   <thead>
@@ -19,10 +19,11 @@
     </tr>
   </thead>
   <tbody>
+
     <%= paginate @callbackends %>
     <% @callbackends.each do |callbackend| %>
 
-      <tr>
+     <tr>
         <th scope="row"><%= callbackend.id%></th>
         <td><%= callbackend.transid%></td>
         <td><%= callbackend.numero%></td>
