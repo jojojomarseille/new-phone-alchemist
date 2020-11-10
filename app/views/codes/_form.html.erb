@@ -1,0 +1,26 @@
+ <%= simple_form_for @code do |f| %>
+        <div class="label">code</div>
+        <div class="typo"> <%= f.input :code, label: false %> </div>
+
+        <div class="label">valeure</div>
+        <div class="typo"> <%= f.input :value, label: false %> </div>
+
+        <div class="label">utilisateur final</div>
+        <div class="typo"> <%= f.datetime_field :finaluser, label: false %> </div>
+
+        <div class="label">commande associé</div>
+        <div class="typo"> <%= f.input :associatedorder, label: false %> </div>
+
+        <div class="label">status</div>
+        <div class="typo"> <%= f.input :status, label: false %> </div>
+
+        <div class="label">limitte de validité</div>
+        <div class="typo"> <%= f.datetime_field :valid_until, label: false %> </div>
+
+        <div class="label">date utilisation</div>
+        <div class="typo"> <%= f.datetime_field :utilised_at, label: false %> </div>
+
+
+    <%= f.button :submit %>
+
+  <%end %>
