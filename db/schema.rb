@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_153711) do
+ActiveRecord::Schema.define(version: 2020_11_10_160901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,21 @@ ActiveRecord::Schema.define(version: 2020_06_08_153711) do
     t.string "numero"
     t.string "code"
     t.string "callernum"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "calls", force: :cascade do |t|
+    t.string "transid"
+    t.string "formule"
+    t.date "starttime"
+    t.string "numero"
+    t.string "code"
+    t.string "callernum"
+    t.datetime "endtime"
+    t.integer "duree"
+    t.string "call_status"
+    t.string "code_status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
