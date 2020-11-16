@@ -14,9 +14,9 @@ module Audiotel
       end
 
       desc 'Return a specific callbackstart'
-        route_param :id do
+        route_param :code do
         get do
-          callbackstart = Callbackstart.find(params[:id])
+          callbackstart = Callbackstart.find_by_code(params[:code])
           present callbackstart
         end
       end

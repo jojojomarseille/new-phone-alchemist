@@ -9,6 +9,7 @@ gem 'puma'
 gem 'rails', '6.0.0'
 gem 'redis'
 gem 'grape'
+gem 'gon'
 
 gem 'grape-entity'
 gem 'grape_on_rails_routes'

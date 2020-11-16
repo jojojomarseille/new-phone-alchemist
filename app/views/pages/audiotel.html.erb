@@ -1,3 +1,4 @@
+
 <h1> page audiotel </h1>
 
 ici la page qui vas s'afficher pour passer des appels
@@ -9,6 +10,31 @@ Formule A200
 code : "<%= @code %>"
 codes: <%= @codes %>
 
-<input id="le-champ"> </input>
-<button id="audiotel-btn" > Valider </button>
-<div id="message"> </div>
+<h2>Exemple requette ajax codes </h2>
+
+
+<form id="valid-code" class="form-inline">
+  <input type="text" id="le-champ" class="form-control" placeholder="entrer votre code">
+  <input type="submit" id="auiotel-btn" class="btn btn-primary" value="code a valider">
+</form>
+<p id="message"> reponse: </p>
+
+
+<h2>Exemple requette ajax filmes </h2>
+
+<div class="container text-center ">
+<form id="search-movies" class="form-inline">
+  <input type="text" id="ajax-field" class="form-control" placeholder="find movies">
+  <input type="submit" id="ajax-btn" class="btn btn-primary" value="search">
+</form>
+<ul id="ajaxresults" class="list-inline"> </ul>
+</div>
+
+
+<h2>Exemple requette ajax post pour autocompletion </h2>
+<input type="text" id="search"/>
+
+
+<h2>Exemple creer un objet callback start avec une requette ajax </h2>
+<button id="createcallbackstart-btn"> Creer un callbackstart </button>
+<p id="feedback"> </p>

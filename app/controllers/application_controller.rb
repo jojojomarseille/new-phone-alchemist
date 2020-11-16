@@ -18,20 +18,25 @@ def categories_load
 
 end
 
-def audio_code_validation(audio_code)
-  @codes = []
-    Call.all.each do |appel|
-      @codes << appel.code
-    end
-    return @codes.include?(audio_code)
-  end
+# def audio_code_validation(audio_code)
+#   @codes = []
+#     Call.all.each do |appel|
+#       @codes << appel.code
+#     end
+#     return @codes.include?(audio_code)
+#   end
 
-def audio_code_validation(audio_code)
-  # je fais un hash avec tout les appels
+def audio_code_validation2(audio_code)
+#concept: on appel la methode en passant un code en argument et la fonction dit si oui ou non il fait partie dela liste des codes a valider.
+
+  #etape 1, il faut faire la liste: je doit faire un hash avec tout les codes au status a validé
   @appels = []
     Call.all.each do |appel|
       @appels << appel
     end
+
+
+
 
   # je verifie appel par appel si un appel contien le code passé en parametre
    @appels.each do |appel|

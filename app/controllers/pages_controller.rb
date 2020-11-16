@@ -8,12 +8,15 @@ class PagesController < ApplicationController
 
   def audiotel
     # quelques elements mis ici a des fin de tests
+
   @code = 556
 
   @codes = []
   Call.all.each do |appel|
       @codes << appel.code
   end
+
+  gon.codes = @codes
   end
 
   def audio_code_validation(audio_code)
