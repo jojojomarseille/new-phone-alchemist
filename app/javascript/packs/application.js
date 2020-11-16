@@ -52,7 +52,8 @@ const changeCodeStatus = (code) => {
 // ici il faut lancer une requette pour trouver l'appel qui correspond a ce code et updater son status
   updateCall(code)
 // ensuite il faut generer un code promo
-
+  findFormule(code)
+  generateCodePromo(formule)
 };
 
 //cette fonction update le code_status d'un call, identifié a partir de son code, a "code validé"

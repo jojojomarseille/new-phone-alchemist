@@ -1,7 +1,7 @@
 class CodesController < ApplicationController
 
 def index
-    @codes = Code.all
+    @codes = Code.page(params[:page]).per(50)
   end
 
   def new

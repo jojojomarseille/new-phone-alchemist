@@ -17,6 +17,7 @@ class PagesController < ApplicationController
   end
 
   gon.codes = @codes
+  gon.user_id = current_user.id
   end
 
   def audio_code_validation(audio_code)

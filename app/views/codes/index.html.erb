@@ -4,24 +4,50 @@
 
 <h1>Code#index</h1>
 
-<div class="cards1">
-
-    <% @codes.each do |code| %>
-    <div class=" codesindex col-sm-12 row">
-        <p class="card-title"><%= code.code%></p>
-        <p class="card-text"><%= code.user%></p>
-        <p class="card-text"><%= code.value%></p>
-        <p class="card-text"><%= code.finaluser%></p>
-        <p class="card-text"><%= code.associatedorder%></p>
-    </div>
-    <% end %>
-  </div>
-
-
 
 <p> <a href= "codes/new" class="btn btn-primary"> Creer un nouveau code</a></p>
-</div>
 
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">user_id</th>
+      <th scope="col">code</th>
+      <th scope="col">Valeure</th>
+      <th scope="col">utilisateur final</th>
+      <th scope="col">Commande associée</th>
+      <th scope="col">Status</th>
+      <th scope="col">Valid_until</th>
+      <th scope="col">Utilised_at</th>
+      <th scope="col">created_at</th>
+      <th scope="col">updated_at</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= paginate @codes %>
+    <% @codes.each do |code| %>
+    <tr>
+      <th scope="row"><%= code.id%></th>
+      <td><%= code.user_id%></td>
+      <td><%= code.code%></td>
+      <td><%= code.value%></td>
+      <td><%= code.finaluser%></td>
+      <td><%= code.associatedorder%></td>
+      <td><%= code.status%></td>
+      <td><%= code.valid_until%></td>
+      <td><%= code.utilised_at%></td>
+      <td><%= code.created_at%></td>
+      <td><%= code.updated_at%></td>
+    </tr>
+
+    <% end %>
+
+  </tbody>
+</table>
+
+
+</div>
 <% else %>
 
 <% end %>
