@@ -7,23 +7,24 @@ class PagesController < ApplicationController
   end
 
   def audiotel
-    # quelques elements mis ici a des fin de tests
-
-  @code = 556
 
   @codes = []
   Call.all.each do |appel|
+    if appel.code_status == "code validé"
+
+    else
       @codes << appel.code
+    end
   end
 
   gon.codes = @codes
   gon.user_id = current_user.id
   end
 
-  def audio_code_validation(audio_code)
-    @codes = Call.all.code
-    puts @codes.include?(audio_code)
-  end
+  # def audio_code_validation(audio_code)
+  #   @codes = Call.all.code
+  #   puts @codes.include?(audio_code)
+  # end
 
 
 
@@ -44,5 +45,6 @@ class PagesController < ApplicationController
 
   def Userdashboard
     @orders = Order.where(user_id: current_user.id)
+    @codes_promos_user = Code.where(user_id: current_user.id)
   end
 end

@@ -5,7 +5,32 @@ const audiotel = document.getElementById('audiotel-btn');
 const ajaxbtn = document.getElementById('ajax-btn')
 const results = document.querySelector("#ajaxresults")
 
-
+function strRandom(o) {
+  var a = 10,
+      b = 'abcdefghijklmnopqrstuvwxyz',
+      c = '',
+      d = 0,
+      e = ''+b;
+  if (o) {
+    if (o.startsWithLowerCase) {
+      c = b[Math.floor(Math.random() * b.length)];
+      d = 1;
+    }
+    if (o.length) {
+      a = o.length;
+    }
+    if (o.includeUpperCase) {
+      e += b.toUpperCase();
+    }
+    if (o.includeNumbers) {
+      e += '1234567890';
+    }
+  }
+  for (; d < a; d++) {
+    c += e[Math.floor(Math.random() * e.length)];
+  }
+  return c;
+}
 
 // //on ecoute le click sur le bouton e on change le texte
 // audiotel.addEventListener('click', function() {
@@ -37,7 +62,7 @@ document.querySelector("#valid-code")
       isvalidCode(Code);
   })
 
-
+//si le code n'est pas validé, on change son status a validé
 const isvalidCode = (code) => {
   if (gon.codes.includes(code)) {
     message.innerHTML = "Code validé";
@@ -52,7 +77,8 @@ const changeCodeStatus = (code) => {
 // ici il faut lancer une requette pour trouver l'appel qui correspond a ce code et updater son status
   updateCall(code)
 // ensuite il faut generer un code promo
-  findFormule(code)
+  // findFormule(code)
+  const formule = "A200"
   generateCodePromo(formule)
 };
 
@@ -63,44 +89,73 @@ const updateCall = (code) => {
         data: {"code": code},
         type: "post"
       });
+};
+
+
+const generateCodePromo = (formule) => {
+
+  const promo_code = strRandom({
+  includeNumbers: true,
+  length: 8,
+});
+  var now = new Date();
+  var date = new Date();
+  date.setDate(now.getDate()+30);
+
+  $.ajax({
+        type: "post",
+        url: "/api/v1/codes",
+        data: { "code" :
+ {
+     "user_id" : gon.user_id ,
+     "code" : promo_code,
+     "value" : "10",
+     "finaluser" : null,
+     "associatedorder" : null,
+     "status": "a valider",
+     "valid_until": date,
+     "utilised_at" : null
+ }},
+      });
 
 };
+
 
 // le js pour la recherche de filmes:
-document.querySelector("#search-movies")
-  .addEventListener("submit", (event) => {
-    results.innerHTML = "";
-    event.preventDefault();
-     const keyword = document.querySelector("#ajax-field").value;
-     searchMovie(keyword);
-  });
+// document.querySelector("#search-movies")
+//   .addEventListener("submit", (event) => {
+//     results.innerHTML = "";
+//     event.preventDefault();
+//      const keyword = document.querySelector("#ajax-field").value;
+//      searchMovie(keyword);
+//   });
 
 
-const searchMovie = (keyword) => {
-  const apiUrl = `http://www.omdbapi.com/?s=${keyword}&apikey=adf1f2d7`;
-  fetch(apiUrl)
-    .then(response => response.json())
-    .then((data) => {
-      data.Search.forEach((movie) => {
-        console.log(movie);
-        results.insertAdjacentHTML("beforeend",
-        `<li>
-            <img src="${movie.Poster}" />
-            <p>${movie.Title}</p>
-        </li>`);
-      });
-    });
-};
+// const searchMovie = (keyword) => {
+//   const apiUrl = `http://www.omdbapi.com/?s=${keyword}&apikey=adf1f2d7`;
+//   fetch(apiUrl)
+//     .then(response => response.json())
+//     .then((data) => {
+//       data.Search.forEach((movie) => {
+//         console.log(movie);
+//         results.insertAdjacentHTML("beforeend",
+//         `<li>
+//             <img src="${movie.Poster}" />
+//             <p>${movie.Title}</p>
+//         </li>`);
+//       });
+//     });
+// };
 
-searchMovie("batman");
+// searchMovie("batman");
 
 
 // le js pour l'autocompletion post
 
-const search = document.querySelector("#search");
-search.addEventListener("Keyup", (event) => {
-  console.log(event.currentTarget.value);
-});
+// const search = document.querySelector("#search");
+// search.addEventListener("Keyup", (event) => {
+//   console.log(event.currentTarget.value);
+// });
 
 
 

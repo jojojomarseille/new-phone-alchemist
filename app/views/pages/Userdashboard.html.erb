@@ -60,6 +60,17 @@
         <%end %>
       </div>
 
+      <div class="cards col-sm-10">
+        <h2> Mes codes_promo:</h2>
+        <% @codes_promos_user.each do |code| %>
+
+            <div class="col1 col-sm-5">
+              <p class="card-text">Code: <%= code.code %></p>
+              <p class="card-text">montant:<%= code.value%>€</p>
+            </div>
+
+        <%end %>
+      </div>
 
 
 
