@@ -1,27 +1,40 @@
 
 <% if current_user.admin? %>
 
-
+<div class="container1 col-sm-10">
 
 <h1>Utilisateurs </h1>
 
 
-
-  <div class="cards1 ">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">email</th>
+      <th scope="col">Date de creation</th>
+      <th scope="col">Admin?</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">CP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= paginate @users %>
     <% @users.each do |user| %>
-    <div class="cardcategorie col-sm-12 row">
-      <img class="col-sm-4" src="https://www.zoorigin.com/media/thumbnail/article_cover/media/images/xfocus.jpg.pagespeed.ic.pGGl6foEVp.jpg" class="card-img-top" alt="koala">
-      <div class="card-body col-sm-7">
-        <h5 class="card-title"><%= user.email%></h5>
-        <p class="card-text"><%= user.name%>  <%= user.firstname%></p>
-        <p class="card-text">Code postal: <%= user.cp %></p>
+      <tr>
+        <th scope="row"><%= user.id%></th>
+        <td><%= user.email%></td>
+        <td><%= user.created_at%></td>
+        <td><%= user.admin%></td>
+        <td><%= user.name%></td>
+        <td><%= user.firstname%></td>
+        <td><%= user.cp%></td>
+      </tr>
 
-
-      </div>
-    </div>
     <% end %>
-  </div>
 
+     </tbody>
+</table>
 
 </div>
 
