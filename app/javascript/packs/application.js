@@ -102,7 +102,7 @@ const updateCall = (code) => {
 
 
 const generateCodePromo = (formule) => {
-
+//il faut ajouter la prise en charge de la formule et du transid du call
   const promo_code = strRandom({
   includeNumbers: true,
   length: 8,
@@ -117,6 +117,7 @@ const generateCodePromo = (formule) => {
         data: { "code" :
  {
      "user_id" : gon.user_id ,
+     "transid" : "transid",
      "code" : promo_code,
      "value" : "10",
      "finaluser" : null,

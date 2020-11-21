@@ -26,6 +26,7 @@ module Audiotel
             params do
               requires :code, type: Hash do
                 requires :user_id, type: Integer, desc: 'user_id'
+                requires :transid, type: String, desc: 'transid'
                 requires :code, type: String, desc: 'code'
                 requires :value, type: Float, desc: 'value'
                 requires :finaluser, type: String, desc: 'Utilisateur final'
