@@ -64,12 +64,21 @@ document.querySelector("#valid-code")
 
 //si le code n'est pas validé, on change son status a validé
 const isvalidCode = (code) => {
-  if (gon.codes.includes(code)) {
-    message.innerHTML = "Code validé";
-    changeCodeStatus(code)
+  $.ajax({
+  type:"GET",
+  url:`api/v1/calls/${code}`,
+  dataType:"json",
+  data: {code: code},
+  success:function(result){
+
+    if (result.code_status == "code validé") {
+    message.innerHTML = "Ce code n'est pas valide";
    } else {
-    message.innerHTML = "Code non valide";
+    message.innerHTML = "Code validé";
+        changeCodeStatus(code);
    }
+     }
+  })
 };
 
 
@@ -77,8 +86,8 @@ const changeCodeStatus = (code) => {
 // ici il faut lancer une requette pour trouver l'appel qui correspond a ce code et updater son status
   updateCall(code)
 // ensuite il faut generer un code promo
-  // findFormule(code)
-  const formule = "A200"
+    findFormule(code)
+ const formule ="A200"
   generateCodePromo(formule)
 };
 
@@ -121,6 +130,24 @@ const generateCodePromo = (formule) => {
 };
 
 
+
+const findFormule = (code) => {
+  const apiUrl3 = `http://localhost:3000/api/v1/calls/${code}`;
+  fetch(apiUrl3)
+    .then(response => response.json())
+    .then((call) => {
+          const formuleAppel =  call.formule
+      });
+}
+
+// const findCode_status = (code) => {
+//   const apiUrl3 = `http://localhost:3000/api/v1/calls/${code}`;
+//   fetch(apiUrl3)
+//     .then(response => response.json())
+//     .then((call) => {
+//           const code_status =  call.code_status
+//       });
+// }
 // le js pour la recherche de filmes:
 // document.querySelector("#search-movies")
 //   .addEventListener("submit", (event) => {

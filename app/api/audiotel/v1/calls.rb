@@ -7,22 +7,13 @@ module Audiotel
 
       resource :calls do
 
-
-
-        # desc 'Return list of calls'
-        #   get do
-        #     calls = Call.all
-        #     present calls
-        #   end
-        # end
-
-      # desc 'Return a specific callbackstart'
-      #   route_param :id do
-      #   get do
-      #     callbackstart = Callbackstart.find(params[:id])
-      #     present callbackstart
-      #   end
-      # end
+        desc 'Return a specific call'
+          route_param :code do
+          get do
+            call = Call.find_by_code(params[:code])
+            present call
+          end
+          end
 
         desc 'Update a call.'
             params do
