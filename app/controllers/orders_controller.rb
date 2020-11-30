@@ -31,12 +31,12 @@ end
 
 
 def index
-  @orders = Order.all
-  @orderspending = Order.where(state: "pending")
-  @orderspaid = Order.where(state: "paid")
-  @ordersenverif = Order.where(state: "enverif")
-  @ordersvalidé = Order.where(state: "validé")
-  @orderslivré = Order.where(state: "livré")
+  @orders = Order.all.page(params[:page]).per(50)
+  @orderspending = Order.where(state: "pending").page(params[:page]).per(50)
+  @orderspaid = Order.where(state: "paid").page(params[:page]).per(50)
+  @ordersenverif = Order.where(state: "enverif").page(params[:page]).per(50)
+  @ordersvalidé = Order.where(state: "validé").page(params[:page]).per(50)
+  @orderslivré = Order.where(state: "livré").page(params[:page]).per(50)
 
 end
 

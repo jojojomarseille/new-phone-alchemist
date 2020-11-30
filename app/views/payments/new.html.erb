@@ -1,13 +1,25 @@
 <div class="container">
   <div class="row py-4">
-    <div class="col-md-3"><%= image_tag @product.photo_url , width: '100%'%></div>
+    <div class="col-md-3 payment_pic"><%= image_tag @product.photo_url , width: '100%'%>
+
+      <form id="valid-promoCode" class="form-inline promoCodeForm">
+  <input type="text" id="promoCode-le-champ" class="form-control " placeholder="entrer votre code">
+  <input type="submit" id="promoCode-btn" class="btn btn-primary" value="code a valider">
+</form>
+<p id="messagePromoCode"> reponse: </p>
+    </div>
     <div class="col">
       <h1>Résumé de commande</h1>
       <p>Commande no <strong><%= @order.id %></strong></p>
-      <p> Montant total TTC: <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
+      <p id="pricetable"></p>
+      <p id="totalPrice"> Montant total TTC: <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
       <button id="pay" class="btn btn-primary">Pay</button>
 
       <p> <%=@prix%> </p>
+
+      <ul class="users_codes_list"> </ul>
+
+
 
       <script src="https://js.stripe.com/v3/"></script>
 

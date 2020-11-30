@@ -7,41 +7,61 @@ module Audiotel
 
       resource :codes do
 
-      #   desc 'Return list of callbackstarts'
-      #   get do
-      #     callbackstarts = Callbackstart.all
-      #     present callbackstarts
-      #   end
-      # end
+        desc 'Return list of codes'
+          get do
+            userCodes = Code.find_by_user_id
+            present callbackstarts
+          end
 
-      # desc 'Return a specific callbackstart'
-      #   route_param :code do
-      #   get do
-      #     callbackstart = Callbackstart.find_by_code(params[:code])
-      #     present callbackstart
-      #   end
-      # end
 
-      desc 'Create a code.'
-            params do
-              requires :code, type: Hash do
-                requires :user_id, type: Integer, desc: 'user_id'
-                requires :transid, type: String, desc: 'transid'
-                requires :code, type: String, desc: 'code'
-                requires :value, type: Float, desc: 'value'
-                requires :finaluser, type: String, desc: 'Utilisateur final'
-                requires :associatedorder, type: String, desc: 'Commande associée'
-                requires :status, type: String, desc: 'Status'
-                requires :valid_until, type: DateTime, desc: 'date limitte de validitée'
-                requires :utilised_at, type: DateTime, desc: 'Date d utilisation'
+        desc 'Return a specific code'
+          route_param :code do
+          get do
+            codeToUse = Code.find_by_code(params[:code])
+            present codeToUse
+          end
+          end
+
+
+
+        desc 'Create a code.'
+              params do
+                requires :code, type: Hash do
+                  requires :user_id, type: Integer, desc: 'user_id'
+                  requires :transid, type: String, desc: 'transid'
+                  requires :code, type: String, desc: 'code'
+                  requires :value, type: Float, desc: 'value'
+                  requires :finaluser, type: String, desc: 'Utilisateur final'
+                  requires :associatedorder, type: String, desc: 'Commande associée'
+                  requires :status, type: String, desc: 'Status'
+                  requires :valid_until, type: DateTime, desc: 'date limitte de validitée'
+                  requires :utilised_at, type: DateTime, desc: 'Date d utilisation'
+                end
               end
+
+              post do
+               @code_promo = Code.create(params[:code])
+              end
+
+        resource :using do
+        desc 'Update a code status.'
+            params do
+                #requires :transid, type: String, desc: 'transid'
+                # requires :formule, type: String, desc: 'Formule'
+                # requires :starttime, type: DateTime, desc: 'Starttime'
+                requires :associatedorder, type: String, desc: 'order associated'
+                requires :code, type: String, desc: 'Code'
+                # requires :callernum, type: String, desc: 'Caller num'
             end
 
             post do
-             @code_promo = Code.create(params[:code])
+            @code = Code.find_by_code(params[:code])
+             @code.update(status: "code utilisé", associatedorder: params[:associatedorder])
             end
         end
+
+
+      end
     end
   end
 end
-

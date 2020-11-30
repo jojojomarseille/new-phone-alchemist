@@ -1,158 +1,234 @@
-<% if current_user.admin? %>
-
 
 <h2> Liste des commandes validées: </h2>
 
-<div class="cards1 ">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">state</th>
+      <th scope="col">amount_cents</th>
+      <th scope="col">checkout_session_id</th>
+      <th scope="col">user_id</th>
+      <th scope="col">created_at</th>
+      <th scope="col">updated_at</th>
+      <th scope="col">product_sku</th>
+      <th scope="col">product_id</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= paginate @ordersvalidé %>
     <% @ordersvalidé.each do |order| %>
-    <div class="cardcategorie col-sm-12 row">
-      <img class="col-sm-4" src="https://www.zoorigin.com/media/thumbnail/article_cover/media/images/xfocus.jpg.pagespeed.ic.pGGl6foEVp.jpg" class="card-img-top" alt="koala">
-      <div class="card-body col-sm-4">
-        <h5 class="card-title">Order id:<%= order.id%></h5>
-        <p class="card-text">etat:<%=order.state%>
-          <%= form_tag "/orders/#{order.id}", method: "patch" do %>
-              <input type="hidden" name="state" value= "livré" />
-              <input type="submit" value="Marquer comme envoyé" />
-          <% end %>
-        </p>
+    <tr>
+      <th scope="row"><%= order.id%></th>
+      <td><%= order.state%></td>
+      <td><%= order.amount_cents%></td>
+      <td><%= order.checkout_session_id%></td>
+      <td><%= order.user_id%></td>
+      <td><%= order.created_at%></td>
+      <td><%= order.updated_at%></td>
+      <td><%= order.product_sku%></td>
+      <td><%= order.product_id%></td>
 
-      </div>
-      <div class="card-body col-sm-3">
-        <p class="card-text">montant:<%= order.amount_cents%>€</p>
-        <p class="card-text">utilisateur: <%= order.user_id%></p>
-        <p class="card-text">créé le:<%= order.created_at%></p>
-        <p class="card-text">produit: <%= order.product_id%></p>
-      </div>
+    </tr>
 
-    </div>
     <% end %>
-  </div>
 
-
-</div>
-</div>
+  </tbody>
+</table>
 
 
 
 
 <h2> Liste des commandes a verifier: </h2>
 
-<div class="cards1 ">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">state</th>
+      <th scope="col">amount_cents</th>
+      <th scope="col">checkout_session_id</th>
+      <th scope="col">user_id</th>
+      <th scope="col">created_at</th>
+      <th scope="col">updated_at</th>
+      <th scope="col">product_sku</th>
+      <th scope="col">product_id</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= paginate @ordersenverif %>
     <% @ordersenverif.each do |order| %>
-    <div class="cardcategorie col-sm-12 row">
-      <img class="col-sm-4" src="https://www.zoorigin.com/media/thumbnail/article_cover/media/images/xfocus.jpg.pagespeed.ic.pGGl6foEVp.jpg" class="card-img-top" alt="koala">
-      <div class="card-body col-sm-4">
-        <h5 class="card-title">Order id:<%= order.id%></h5>
-        <p class="card-text">etat:<%=order.state%>
-          <%= form_tag "/orders/#{order.id}", method: "patch" do %>
-              <input type="hidden" name="state" value= "validé" />
-              <input type="submit" value="Valider" />
-          <% end %>
-        </p>
+    <tr>
+      <th scope="row"><%= order.id%></th>
+      <td><%= order.state%></td>
+      <td><%= order.amount_cents%></td>
+      <td><%= order.checkout_session_id%></td>
+      <td><%= order.user_id%></td>
+      <td><%= order.created_at%></td>
+      <td><%= order.updated_at%></td>
+      <td><%= order.product_sku%></td>
+      <td><%= order.product_id%></td>
 
+    </tr>
 
-      </div>
-      <div class="card-body col-sm-3">
-        <p class="card-text">montant:<%= order.amount_cents%>€</p>
-         <p class="card-text">utilisateur: <%= order.user_id%></p>
-        <p class="card-text">créé le:<%= order.created_at%></p>
-        <p class="card-text">produit: <%= order.product_id%></p>
-      </div>
-
-    </div>
     <% end %>
-  </div>
 
-
-</div>
-</div>
-
-
+  </tbody>
+</table>
 
 
 <h2> Liste des commandes payées: </h2>
 
-<div class="cards1 ">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">state</th>
+      <th scope="col">amount_cents</th>
+      <th scope="col">checkout_session_id</th>
+      <th scope="col">user_id</th>
+      <th scope="col">created_at</th>
+      <th scope="col">updated_at</th>
+      <th scope="col">product_sku</th>
+      <th scope="col">product_id</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= paginate @orderspaid %>
     <% @orderspaid.each do |order| %>
-    <div class="cardcategorie col-sm-12 row">
-      <img class="col-sm-4" src="https://www.zoorigin.com/media/thumbnail/article_cover/media/images/xfocus.jpg.pagespeed.ic.pGGl6foEVp.jpg" class="card-img-top" alt="koala">
-      <div class="card-body col-sm-4">
-        <h5 class="card-title">Order id:<%= order.id%></h5>
-        <p class="card-text">etat:<%=order.state%>
-          <%= form_tag "/orders/#{order.id}", method: "patch" do %>
-              <input type="hidden" name="state" value= "enverif" />
-              <input type="submit" value="passer en verification" />
-          <% end %>
-        </p>
-        <p class="card-text">montant:<%= order.amount_cents%>€</p>
+    <tr>
+      <th scope="row"><%= order.id%></th>
+      <td><%= order.state%></td>
+      <td><%= order.amount_cents%></td>
+      <td><%= order.checkout_session_id%></td>
+      <td><%= order.user_id%></td>
+      <td><%= order.created_at%></td>
+      <td><%= order.updated_at%></td>
+      <td><%= order.product_sku%></td>
+      <td><%= order.product_id%></td>
 
-      </div>
-      <div class="card-body col-sm-3">
-        <p class="card-text">créé le:<%= order.created_at%></p>
-        <p class="card-text">produit: <%= order.product_id%></p>
-        <p class="card-text">utilisateur: <%= order.user_id%></p>
-      </div>
+    </tr>
 
-    </div>
     <% end %>
-  </div>
 
-
-</div>
-</div>
+  </tbody>
+</table>
 
 
 
 <h2> Liste des commandes en attente: </h2>
 
-<div class="cards1 ">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">state</th>
+      <th scope="col">amount_cents</th>
+      <th scope="col">checkout_session_id</th>
+      <th scope="col">user_id</th>
+      <th scope="col">created_at</th>
+      <th scope="col">updated_at</th>
+      <th scope="col">product_sku</th>
+      <th scope="col">product_id</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= paginate @orderspending %>
     <% @orderspending.each do |order| %>
-    <div class="cardcategorie col-sm-12 row">
-      <img class="col-sm-4" src="https://www.zoorigin.com/media/thumbnail/article_cover/media/images/xfocus.jpg.pagespeed.ic.pGGl6foEVp.jpg" class="card-img-top" alt="koala">
-      <div class="card-body col-sm-4">
-        <h5 class="card-title">Order id:<%= order.id%></h5>
-        <p class="card-text">etat:<%=order.state%></p>
-        <p class="card-text">montant:<%= order.amount_cents%>€</p>
-        <p class="card-text">utilisateur: <%= order.user_id%></p>
-      </div>
-      <div class="card-body col-sm-3">
-        <p class="card-text">créé le:<%= order.created_at%></p>
-        <p class="card-text">produit: <%= order.product_id%></p>
-      </div>
+    <tr>
+      <th scope="row"><%= order.id%></th>
+      <td><%= order.state%></td>
+      <td><%= order.amount_cents%></td>
+      <td><%= order.checkout_session_id%></td>
+      <td><%= order.user_id%></td>
+      <td><%= order.created_at%></td>
+      <td><%= order.updated_at%></td>
+      <td><%= order.product_sku%></td>
+      <td><%= order.product_id%></td>
 
-    </div>
+    </tr>
+
     <% end %>
-  </div>
 
-
-</div>
-</div>
-
-<% else %>
-
-<% end %>
+  </tbody>
+</table>
 
 <h2> Liste des commandes livrées: </h2>
 
-<div class="cards1 ">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">state</th>
+      <th scope="col">amount_cents</th>
+      <th scope="col">checkout_session_id</th>
+      <th scope="col">user_id</th>
+      <th scope="col">created_at</th>
+      <th scope="col">updated_at</th>
+      <th scope="col">product_sku</th>
+      <th scope="col">product_id</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= paginate @orderslivré %>
     <% @orderslivré.each do |order| %>
-    <div class="cardcategorie col-sm-12 row">
-      <img class="col-sm-4" src="https://www.zoorigin.com/media/thumbnail/article_cover/media/images/xfocus.jpg.pagespeed.ic.pGGl6foEVp.jpg" class="card-img-top" alt="koala">
-      <div class="card-body col-sm-4">
-        <h5 class="card-title">Order id:<%= order.id%></h5>
-        <p class="card-text">etat:<%=order.state%></p>
-        <p class="card-text">montant:<%= order.amount_cents%>€</p>
-        <p class="card-text">utilisateur: <%= order.user_id%></p>
-      </div>
-      <div class="card-body col-sm-3">
-        <p class="card-text">créé le:<%= order.created_at%></p>
-        <p class="card-text">produit: <%= order.product_id%></p>
-      </div>
+    <tr>
+      <th scope="row"><%= order.id%></th>
+      <td><%= order.state%></td>
+      <td><%= order.amount_cents%></td>
+      <td><%= order.checkout_session_id%></td>
+      <td><%= order.user_id%></td>
+      <td><%= order.created_at%></td>
+      <td><%= order.updated_at%></td>
+      <td><%= order.product_sku%></td>
+      <td><%= order.product_id%></td>
 
-    </div>
+    </tr>
+
     <% end %>
-  </div>
 
+  </tbody>
+</table>
 
-</div>
-</div>
+<h2> Liste des commandes tous status(<%= @orders.count%>): </h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">state</th>
+      <th scope="col">amount_cents</th>
+      <th scope="col">checkout_session_id</th>
+      <th scope="col">user_id</th>
+      <th scope="col">created_at</th>
+      <th scope="col">updated_at</th>
+      <th scope="col">product_sku</th>
+      <th scope="col">product_id</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= paginate @orders %>
+    <% @orders.each do |order| %>
+    <tr>
+      <th scope="row"><%= order.id%></th>
+      <td><%= order.state%></td>
+      <td><%= order.amount_cents%></td>
+      <td><%= order.checkout_session_id%></td>
+      <td><%= order.user_id%></td>
+      <td><%= order.created_at%></td>
+      <td><%= order.updated_at%></td>
+      <td><%= order.product_sku%></td>
+      <td><%= order.product_id%></td>
+
+    </tr>
+
+    <% end %>
+
+  </tbody>
+</table>
