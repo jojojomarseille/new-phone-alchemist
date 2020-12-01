@@ -44,7 +44,7 @@ class PagesController < ApplicationController
   end
 
   def Userdashboard
-    @orders = Order.where(user_id: current_user.id)
-    @codes_promos_user = Code.where(user_id: current_user.id)
+    @orders = Order.where(user_id: current_user.id).page(params[:page]).per(50)
+    @codes_promos_user = Code.where(user_id: current_user.id).page(params[:page]).per(50)
   end
 end

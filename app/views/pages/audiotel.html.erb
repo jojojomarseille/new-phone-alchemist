@@ -1,26 +1,27 @@
+<div id="audiotel-header">
+<h1> Codes Alchis </h1>
 
-<h1> page audiotel </h1>
-
-ici la page qui vas s'afficher pour passer des appels
-
-<p> Bonjour <%= current_user.name %> </p>
-
-Numeros à appeler: 0826230001
-Formule A200
-code : "<%= @code %>"
-codes: <%= @codes %>
-user: <%= current_user.id %>
-
-<h2>Exemple requette ajax codes </h2>
+<p>explications...</p>
+</div>
 
 
+<div class="col-10 col-sm-4" id="div-audiotel">
+Numeros à appeler:
+
+<div id='display'>
+<div class='display'>08 26 230 001</div>
+<div><p class='tarifs'>Service 0.50 €/appel <br/> + prix appel</p></div>
+</div>
+
+
+<p>
 <form id="valid-code" class="form-inline">
   <input type="text" id="le-champ" class="form-control" placeholder="entrer votre code">
   <input type="submit" id="auiotel-btn" class="btn btn-primary" value="code a valider">
-</form>
-<p id="message"> reponse: </p>
+</form></p>
+<p id="message"> </p>
 
-
+</div>
 <!-- <h2>Exemple requette ajax filmes </h2>
 
 <div class="container text-center ">

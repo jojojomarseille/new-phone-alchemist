@@ -199,3 +199,140 @@ height: 100%;
 .codesindex p {
   margin: 20px;
 }
+
+
+// payment new
+
+.paymentrow {
+
+  margin: auto;
+}
+
+#pay-col-1 {
+
+  width: 50%;
+}
+
+#pay-col-1 img {
+  width: 70%;
+  margin-top: 25px;
+  height: 100%;
+}
+
+#pay-col-1 form {
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#pay-col-1 input {
+  width: 40%;
+}
+
+#rappel-codes-user {
+  background-color: #bdb8b0;
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 2px;
+}
+
+#rappel-codes-user h5 {
+
+
+}
+
+#user-code-list ul {
+  list-style-type: none;
+  text-align: left;
+}
+
+#pay-col-2 {
+  width: 50%;
+}
+
+#pricetable {
+  width: 80%;
+  margin: auto;
+  background-color: #bdb8b0;
+}
+
+#pricetable ul {
+  list-style-type: none;
+  text-align: left;
+}
+
+
+
+//page audiotel
+
+#div-audiotel {
+background-color: grey;
+text-align: center;
+border-radius: 5px;
+margin: auto;
+padding: 10px;
+}
+
+#div-audiotel form {
+  display: inline-block;
+  text-align: center;
+}
+
+#audiotel-header {
+  text-align: center;
+}
+
+#display {
+    margin: auto;
+    background-color: #fff;
+    width: 445px;
+    height: 40px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    // margin-left: 10px;
+    display: block;
+    border: 1px solid gray;
+    position: relative;
+
+}
+
+#display div {
+    float: left;
+    width: 200px;
+    background-color: #a50f78;
+    font-size: 15px;
+    color: #fff;
+    position: relative;
+    height: 47px;
+    margin-top: -4px;
+}
+
+#display div p {
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 20px;
+    line-height: 18px;
+    padding-top: 5px;
+}
+
+#display div:first-child {
+    width: 220px;
+    background-color: #fff;
+    font-size: 30px;
+    height: 35px;
+    color: #a50f78;
+    padding-left: 10px;
+    margin-top: 1px;
+}
+
+#display div:last-child::after {
+    left: -1px;
+    top: 15px;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border: 9px solid rgba(255, 255, 255, 0);
+    border-left-color: rgb(255, 255, 255);
+}

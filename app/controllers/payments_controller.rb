@@ -6,6 +6,9 @@ class PaymentsController < ApplicationController
     @product = Product.find(@order.product_id)
     gon.order = @order
     gon.current_order_id = @order.id
+    @user = current_user
+    @userCodes = Code.where(user_id: @user.id)
+    @userCodesUsable = @userCodes.where(status: "a valider" )
   end
 
 

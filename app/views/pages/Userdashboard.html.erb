@@ -43,50 +43,72 @@
 
    <div class="row userorders">
 
-      <div class="cards col-sm-10">
         <h2> Mes commandes:</h2>
-        <% @orders.each do |order| %>
-          <div class="cardorder col-sm-12 row">
-            <div class="col1 col-sm-5">
-              <h3 class="card-text">Commande no <%= order.id %></h3>
-              <p class="card-text">montant:<%= order.amount_cents%>€</p>
-            </div>
-            <div class="col2 col-sm-5">
-              <p class="card-text">date:<%= order.created_at%></p>
-              <p class="card-text">produit: <%= order.product_id%></p>
-              <p class="card-text">status: <%= order.state%></p>
-            </div>
-          </div>
-        <%end %>
-      </div>
 
-      <div class="cards col-sm-10">
+
+      <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">montant</th>
+      <th scope="col">date</th>
+      <th scope="col">produit</th>
+      <th scope="col">status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= paginate @orders %>
+    <% @orders.each do |order| %>
+    <tr>
+      <th scope="row"><%= order.id%></th>
+      <td><%= order.amount_cents%></td>
+      <td><%= order.created_at%></td>
+      <td><%= order.product_id%></td>
+      <td><%= order.state%></td>
+    </tr>
+
+    <% end %>
+
+  </tbody>
+</table>
+
+
         <h2> Mes codes_promo:</h2>
-        <% @codes_promos_user.each do |code| %>
 
-            <div class="col1 col-sm-5">
-              <p class="card-text">Code: <%= code.code %></p>
-              <p class="card-text">montant:<%= code.value%>€</p>
-            </div>
+      <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">code</th>
+      <th scope="col">valeure</th>
+      <th scope="col">date creation</th>
+      <th scope="col">date validité</th>
+      <th scope="col">status</th>
+    </tr>
+  </thead>
 
-        <%end %>
-      </div>
+  <tbody>
+    <%= paginate @codes_promos_user %>
+    <% @codes_promos_user.each do |code| %>
+    <tr>
+      <th scope="row"><%= code.id%></th>
+      <td><%= code.code%></td>
+      <td><%= code.value%></td>
+      <td><%= code.created_at%></td>
+      <td><%= code.valid_until%></td>
+      <td><%= code.status%></td>
+    </tr>
+
+    <% end %>
+
+  </tbody>
+</table>
+
 
 
 
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </div>

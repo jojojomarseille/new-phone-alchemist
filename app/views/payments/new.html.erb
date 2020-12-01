@@ -1,27 +1,48 @@
 <div class="container">
-  <div class="row py-4">
-    <div class="col-md-3 payment_pic"><%= image_tag @product.photo_url , width: '100%'%>
+
+  <div class="row paymentrow">
+    <div id="pay-col-1">
+      <div class="payment_pic"><%= image_tag @product.photo_url %>
+
+      <div id="rappel-codes-user">
+        <h5> Les codes promos suivants sont disponibles: </h5>
+        <div id="user-code-list">
+              <ul>
+              <% @userCodesUsable.each do |code| %>
+              <li><%= code.code%> : <%= code.value%> € </li>
+              <% end %>
+              </ul>
+
+          </div>
+
+      </div>
 
       <form id="valid-promoCode" class="form-inline promoCodeForm">
-  <input type="text" id="promoCode-le-champ" class="form-control " placeholder="entrer votre code">
-  <input type="submit" id="promoCode-btn" class="btn btn-primary" value="code a valider">
-</form>
-<p id="messagePromoCode"> reponse: </p>
+        <input type="text" id="promoCode-le-champ" class="form-control " placeholder="entrer votre code">
+        <input type="submit" id="promoCode-btn" class="btn btn-primary" value="valider">
+      </form>
+      <p id="messagePromoCode">  </p>
     </div>
-    <div class="col">
-      <h1>Résumé de commande</h1>
-      <p>Commande no <strong><%= @order.id %></strong></p>
-      <p id="pricetable"></p>
-      <p id="totalPrice"> Montant total TTC: <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
 
-      <p> <%=@prix%> </p>
+    </div>
+      <div id="pay-col-2">
+        <p><h1>Résumé de commande</h1>
+        <p>Commande no <strong><%= @order.id %></strong></p>
+        <div id="pricetable">
+          <ul>
+              <li>code: dehdie : -1€ </li>
+              <li>code: ededed : -10€ </li>
+              <li>code: edrfrf : -15€ </li>
+            </ul>
+        </div>
+        <p id="totalPrice"> Montant total TTC: <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
+        <button id="pay" class="btn btn-primary">Payer en carte</button></p>
+      </div>
+    </div>
 
-      <ul class="users_codes_list"> </ul>
+</div>
 
-
-
-      <script src="https://js.stripe.com/v3/"></script>
+<script src="https://js.stripe.com/v3/"></script>
 
 
       <script>
@@ -32,7 +53,4 @@
             sessionId: '<%= @order.checkout_session_id %>'
           });
         });
-      </script> -->
-    </div>
-  </div>
-</div>
+      </script>
