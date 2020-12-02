@@ -11,7 +11,7 @@ session = Stripe::Checkout::Session.create(
     name: "commande no #{order.id}",
     description: 'Votre commande',
     images: [product.photo_url],
-    amount: product.price_cents,
+    amount: order.amount_cents,
     currency: 'eur',
     quantity: 1,
   }],

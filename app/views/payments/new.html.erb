@@ -5,11 +5,11 @@
       <div class="payment_pic"><%= image_tag @product.photo_url %>
 
       <div id="rappel-codes-user">
-        <h5> Les codes promos suivants sont disponibles: </h5>
+        <h5> Codes alchi utilisables: </h5>
         <div id="user-code-list">
               <ul>
               <% @userCodesUsable.each do |code| %>
-              <li><%= code.code%> : <%= code.value%> € </li>
+              <li>id:<%= code.id%> code:<%= code.code%> : <%= code.value%> € </li>
               <% end %>
               </ul>
 
@@ -29,16 +29,17 @@
         <p><h1>Résumé de commande</h1>
         <p>Commande no <strong><%= @order.id %></strong></p>
         <div id="pricetable">
-          <ul>
-              <li>code: dehdie : -1€ </li>
-              <li>code: ededed : -10€ </li>
-              <li>code: edrfrf : -15€ </li>
+          <ul id="codesEnCours">
+
             </ul>
         </div>
-        <p id="totalPrice"> Montant total TTC: <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-        <button id="pay" class="btn btn-primary">Payer en carte</button></p>
+        <!-- <p id="totalPrice"> Montant total TTC: <strong><%= humanized_money_with_symbol @order.amount %></strong></p> -->
+        <p > Montant total restant a payer TTC: <div id="totalPrice"></div></p>
+        <button id="pay" class="btn btn-primary">Payer en carte</button>
       </div>
     </div>
+
+    <div id="btnCheckoutByCard"> coucou fais mois disparaitre pour voir ;-) </div>
 
 </div>
 

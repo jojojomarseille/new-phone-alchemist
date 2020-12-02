@@ -7,6 +7,7 @@ class PaymentsController < ApplicationController
     gon.order = @order
     gon.current_order_id = @order.id
     @user = current_user
+    gon.price = @order.amount_cents/100
     @userCodes = Code.where(user_id: @user.id)
     @userCodesUsable = @userCodes.where(status: "a valider" )
   end
