@@ -46,6 +46,7 @@ module Audiotel
         resource :using do
         desc 'Update a code status.'
             params do
+
                 #requires :transid, type: String, desc: 'transid'
                 # requires :formule, type: String, desc: 'Formule'
                 # requires :starttime, type: DateTime, desc: 'Starttime'
@@ -59,6 +60,8 @@ module Audiotel
              @code.update(status: "code utilisé", associatedorder: params[:associatedorder])
             end
         end
+
+
 
 
       end

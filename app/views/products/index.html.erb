@@ -46,7 +46,7 @@
         <div class="card-body row">
 
           <h5 class="card-price col-sm-5"><%= un_produit.price%> €</h5>
-          <P class="col-sm-2" ><%= button_to "Acheter", line_items_path(product_id: un_produit), class: "btn btn-primary" %> </P>
+          <button onclick="window.location.href = '/products/<%= un_produit.id %>';" class="col-sm-4 btn btn-primary" >Acheter </button>
         </div>
       </div>
     <% end %>
