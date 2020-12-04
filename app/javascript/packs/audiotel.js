@@ -118,7 +118,7 @@ const generateCodePromo = (formule) => {
      "user_id" : gon.user_id ,
      "transid" : "transid",
      "code" : promo_code,
-     "value" : "10",
+     "value" : "1.55",
      "finaluser" : null,
      "associatedorder" : null,
      "status": "a valider",
