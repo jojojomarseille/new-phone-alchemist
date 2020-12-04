@@ -73,7 +73,7 @@ const changeCodeStatus = (code) => {
 
 const updateOrderPrice = (value) => {
   movingprice -= value ;
-  if (movingprice >= 0) {
+  if (movingprice > 0) {
     printPrice(movingprice);
   } else {
     movingprice = 0;
