@@ -267,22 +267,25 @@ color: white;
 }
 
 #rappel-codes-user {
-  background-color: #bdb8b0;
+  background-color: #808080;
   width: 80%;
   margin: auto;
   margin-top: 20px;
   border-radius: 2px;
+  padding: 15px;
 }
 
 #rappel-codes-user h5 {
-
-
+  font-weight: bold;
+  color: white;
 }
 
 #user-code-list ul {
 
   list-style-type: none;
   text-align: left;
+  font-weight: bold;
+  color: white;
 }
 
 #pay-col-2 {

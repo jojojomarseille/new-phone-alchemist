@@ -51,7 +51,7 @@
               <div class="card-body">
                 <h5 class="card-title"><a href="/products/<%= un_produit.id %>"><%= un_produit.title%></a></h5>
                 <p class="card-price"><%= un_produit.price%> €</p>
-                <%= button_to "ajouter au panier", line_items_path(product_id: un_produit), class: "btn btn-primary" %>
+                <button class="btn btn-primary" onclick="window.location.href = '/products/<%= un_produit.id %>';"> Voir </button>
               </div>
             </div>
           <% end %>
@@ -59,7 +59,7 @@
     </div>
   </div>
 
-  <div class="row row4">
+  <!-- <div class="row row4">
     <% if user_signed_in? %>
         <% if current_user.admin? %>
 
@@ -84,6 +84,6 @@
 
         <% end %>
     <% else %>
-    <% end %>
+    <% end %> -->
   </div>
 </div>

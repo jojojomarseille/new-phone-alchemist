@@ -4,12 +4,13 @@ var codesInUse = [];
 
 const totalPrice = document.querySelector("#totalPrice");
 const codesEnCours = document.querySelector("#codesEnCours");
-
+document.getElementById('payInCoupons').hidden= true;
+const payInCoupons = document.querySelector("#payInCoupons");
 
 const printPrice = (price) => {
   if (price < 0){
     totalPrice.innerHTML = "0€";
-    document.querySelector("#btnCheckoutByCard").style.display = none;
+
   } else {
 totalPrice.innerHTML = `${price}€`;
 }
@@ -77,14 +78,15 @@ const updateOrderPrice = (value) => {
   } else {
     movingprice = 0;
     printPrice(movingprice);
+    document.getElementById('pay').hidden= true;
+    document.getElementById('payInCoupons').hidden= false;
+
     // faire disparaitre le boutons payer en carte
     //creer un autre bouton qui passe le status de la commande a payé et redirige vers la succes page
+
   }
 
 }
-
-
-
 
 
 
@@ -95,6 +97,26 @@ addToCodesInUse = (code) => {
  console.log(codesInUse)
 }
 
+//la on passe les codes en status "validé" et la commande en paid
+payInCoupons.addEventListener("click", (event) =>{
+codesInUse.forEach(code =>{
+  $.ajax({
+        url: "/api/v1/codes/using",
+        data: {"code": code,
+               "associatedorder": gon.current_order_id
+      },
+        type: "post"
+      });
+});
+$.ajax({
+        url: "/api/v1/orders/validate",
+        data: {"id": gon.current_order_id
+      },
+        type: "post"
+      });
+})
+
+//faire que ensuite la order soit passée en status payé et l'user redirigé vers une url de succes
 
 
 //apres appuis sur payer:

@@ -44,27 +44,47 @@ module Audiotel
               end
 
         resource :using do
-        desc 'Update a code status.'
+        desc 'Update a code status and order'
             params do
 
                 #requires :transid, type: String, desc: 'transid'
                 # requires :formule, type: String, desc: 'Formule'
                 # requires :starttime, type: DateTime, desc: 'Starttime'
-                requires :associatedorder, type: String, desc: 'order associated'
-                requires :code, type: String, desc: 'Code'
-                # requires :callernum, type: String, desc: 'Caller num'
-            end
 
-            post do
+                requires :code, type: String, desc: 'Code'
+                requires :associatedorder, type: String, desc: 'order associated'
+                # requires :callernum, type: String, desc: 'Caller num'
+
+          end
+
+          post do
             @code = Code.find_by_code(params[:code])
              @code.update(status: "code utilisé", associatedorder: params[:associatedorder])
             end
         end
-
-
-
-
       end
-    end
+
+        # resource :used do
+        # desc 'Update codes status and orders.'
+        #     params do
+        #         requires :lot, type: Array, desc 'lot a updater'
+        #     end
+
+
+        #     post do
+        #       @lot = :lot
+        #       @lot.each do |code|
+
+        #      @code = Code.find_by_code(code.code)
+        #      @code.update(status: "code utilisé", associatedorder: code.associatedorder)
+        #     end
+        #     end
+
+
+
+
+
+
   end
+end
 end

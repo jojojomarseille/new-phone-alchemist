@@ -18,7 +18,7 @@ module Audiotel
 
 
 
-        desc 'Update a order.'
+        desc 'Update a order amount'
             params do
                 #requires :transid, type: String, desc: 'transid'
                 # requires :formule, type: String, desc: 'Formule'
@@ -43,6 +43,37 @@ module Audiotel
 
              #@code.update(status: "code utilisé", associatedorder: params[:associatedorder])
             end
+
+
+            resource :validate do
+              desc 'Update a order status'
+              params do
+                #requires :transid, type: String, desc: 'transid'
+                # requires :formule, type: String, desc: 'Formule'
+                # requires :starttime, type: DateTime, desc: 'Starttime'
+              # route_param :code do
+                requires :id, type: Integer, desc: 'id'
+
+
+                # requires :callernum, type: String, desc: 'Caller num'
+            end
+
+            #je retrouve le code a partir du code et je le charge dans une variable
+            #je dois avec le code, retrouver le montant du code
+            #je dois retrouver l'order associée au code fournis
+            #je dois diminuer le montant de l'order associée dumontant du code promo
+            post do
+            @order = Order.find_by_id(params[:id])
+            @order.update(state: "paid")
+            # present @ordertoupdate
+
+             #@code.update(status: "code utilisé", associatedorder: params[:associatedorder])
+            end
+            end
+
+
+
+
 
 
       end
