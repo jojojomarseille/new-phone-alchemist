@@ -183,16 +183,54 @@ height: 100%;
 // Userdashboard
 
 .userdata {
-  border: 1px solid black;
+  background-color: #808080;
+  border-radius: 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   width: 100%;
-  height: 300px;
+  height: 400px;
+  text-align: left;
+  padding: 20px;
 }
 
-.cardorder {
-  border: 1px solid black;
+.userdata h2 {
+font-weight: bold;
+color: white;
 
-  height: 150px;
 }
+
+.userdata p{
+font-weight: bold;
+color: white;
+}
+
+
+.userorders {
+  background-color: #808080;
+  border-radius: 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.userorders h2 {
+  font-weight: bold;
+color: white;
+}
+
+.userCoupons {
+  background-color: #808080;
+  border-radius: 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.userCoupons h2 {
+  font-weight: bold;
+color: white;
+}
+
 
 //code index
 
@@ -242,6 +280,7 @@ height: 100%;
 }
 
 #user-code-list ul {
+
   list-style-type: none;
   text-align: left;
 }
@@ -265,6 +304,8 @@ height: 100%;
 
 //page audiotel
 
+
+
 #div-audiotel {
 background-color: grey;
 text-align: center;
@@ -280,7 +321,17 @@ padding: 10px;
 
 #audiotel-header {
   text-align: center;
+  margin:auto;
+  padding: 0px;
+  margin-bottom: 20px;
 }
+
+#audiotel-header img {
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+}
+
 
 #display {
     margin: auto;

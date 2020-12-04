@@ -1,14 +1,16 @@
-<h1> dashboard user </h1>
-<div class="container col-sm-12">
+<div class="container col-sm-10">
+  <h1> Mon compte</h1>
 
-  <div class="row userdata">
-    <h2> Mes infos </h2>
-    <div>
+
+  <div class=" userdata">
+
+
+      <h2> Mes infos: </h2>
         <p> nom: <%= current_user.name %> </p>
         <p> prenom: <%= current_user.firstname %></p>
         <p> mail: <%= current_user.email %> </p>
         <p> CP: <%= current_user.cp %> </p>
-        <p> CP: <%= current_user.created_at %> </p>
+
 
 
                 <div><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -35,17 +37,15 @@
                 </div>
               </div>
             </div>
-    </div>
+
 
 
 
   </div>
 
-   <div class="row userorders">
-
+   <div class="userorders">
         <h2> Mes commandes:</h2>
-
-
+      <div class="col-md-12" style="background-color: white;">
       <table class="table table-striped">
   <thead>
     <tr>
@@ -72,10 +72,14 @@
 
   </tbody>
 </table>
+</div>
 
 
-        <h2> Mes codes Alchis:</h2>
+</div>
 
+<div class=" userCoupons">
+        <h2> Mes Alchi-Coupons:</h2>
+        <div class="col-md-12" style="background-color: white;">
       <table class="table table-striped">
   <thead>
     <tr>
@@ -104,6 +108,7 @@
 
   </tbody>
 </table>
+</div>
 
 
 

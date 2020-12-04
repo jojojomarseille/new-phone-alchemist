@@ -1,43 +1,31 @@
-<div id="audiotel-header">
-<h1> Codes Alchis </h1>
 
-<p>explications...</p>
+<div class="col-md-6" id="audiotel-header">
+<!-- <h1> Codes Alchis </h1> -->
+
+<%= image_tag "Coupons Alchis.png" %>
 </div>
 
 
-<div class="col-10 col-sm-4" id="div-audiotel">
-Numeros à appeler:
+<div class="col-10 col-md-6" id="div-audiotel">
+<p style="font-weight: bold; color: white">1 appel à 3€ + prix d'appel génère un Alchi-Coupon d'une valeure de 1.55€</p>
 
-<div id='display'>
-<div class='display'>08 26 230 001</div>
-<div><p class='tarifs'>Service 0.50 €/appel <br/> + prix appel</p></div>
+<div  id='display'>
+<div class='display'>08 99 36 10 20</div>
+<div><p class='tarifs'>Service 3 €/appel <br/> + prix appel</p></div>
 </div>
-
 
 <p>
 <form id="valid-code" class="form-inline">
-  <input type="text" id="le-champ" class="form-control" placeholder="entrer votre code">
-  <input type="submit" id="auiotel-btn" class="btn btn-primary" value="valider">
+  <input type="text" id="le-champ" class="form-control" placeholder="entrez votre code">
+  <input type="submit" id="auiotel-btn" class="btn btn-success" value="valider" style="color: white; font-weight: bold">
 </form></p>
 <p id="message"> </p>
 
+<div class="row col-md-12" style="margin: auto;justify-content: space-around;margin-top: 30px; margin-bottom: 15px;">
+<div class="btn-warning audio-btn" style="margin-top: 10px;"><%= link_to "mes infos", "/Userdashboard", class: "dropdown-item" %></div>
+<div class="btn-warning audio-btn" style="margin-top: 10px;"><%= link_to "Store", "/", class: "dropdown-item" %></div>
 </div>
-<!-- <h2>Exemple requette ajax filmes </h2>
-
-<div class="container text-center ">
-<form id="search-movies" class="form-inline">
-  <input type="text" id="ajax-field" class="form-control" placeholder="find movies">
-  <input type="submit" id="ajax-btn" class="btn btn-primary" value="search">
-</form>
-<ul id="ajaxresults" class="list-inline"> </ul>
-</div> -->
 
 
-<!-- <h2>Exemple requette ajax post pour autocompletion </h2>
-<input type="text" id="search"/>
+</div>
 
-
-<h2>Exemple creer un objet callback start avec une requette ajax </h2>
-<button id="createcallbackstart-btn"> Creer un callbackstart </button>
-<p id="feedback"> </p>
- -->
