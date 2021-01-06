@@ -114,6 +114,7 @@ $.ajax({
       },
         type: "post"
       });
+window.location.href = "/";
 })
 
 //faire que ensuite la order soit passée en status payé et l'user redirigé vers une url de succes
