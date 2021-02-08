@@ -22,7 +22,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'kaminari'   #gem qui permet de gerer un affichage sur plusieurs pages d'une liste
 gem 'cloudinary', '~> 1.9.1' #pour uploader et retoucher simplement des photos
-gem 'carrierwave', '~> 1.2' # c'est la gem qui associe une photo ou un fichier uploadé a un modéle
+gem 'carrierwave', '~> 2.1' # c'est la gem qui associe une photo ou un fichier uploadé a un modéle
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'money-rails'
